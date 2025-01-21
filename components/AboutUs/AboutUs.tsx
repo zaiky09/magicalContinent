@@ -24,7 +24,7 @@ const AboutUs = () => {
         </div>
 
         {/* Image Section (Placed below the text) */}
-        <div className="flex space-x-6 justify-center">
+        <div className="flex flex-wrap justify-center gap-4 w-full relative h-auto">
           {/* First Image */}
           <div className="relative">
             <Image

@@ -20,7 +20,7 @@ const services: Service[] = [
 
 const Services: React.FC = () => {
   return (
-    <section id="services" className="relative flex max-container padding-container items-center py-20 mb-0 rounded-3xl bg-cream">
+    <section id="services" className="relative flex flex-wrap max-container padding-container items-center py-20 mb-0 rounded-3xl bg-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-lg">
         <h2 className="text-3xl font-bold text-center text-gray-900">Our Services</h2>
         <p className="text-center text-gray-600 mt-2">Explore the wide range of services we offer to make your life easier.</p>

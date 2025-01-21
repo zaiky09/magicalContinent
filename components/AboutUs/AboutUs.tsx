@@ -1,48 +1,51 @@
 import React from "react";
-import Lion from "../../public/images/LionElephants.jpg";
-import Giraffe from "../../public/images/Giraffe.jpg";
+import Plane from "../../public/images/Plane.jpg";
+import Customer from "../../public/images/customerExperience.jpg";
 import Image from "next/image";
 
 const AboutUs = () => {
   return (
     <section
       id="about_us"
-      className="relative flex max-container padding-container items-center py-10 mb-10"
+      className="relative flex max-container padding-container items-center py-20 mb-0 rounded-lg"
     >
-      <div className="flex h-[400px]">
-        <div className="flex absolute left-[-80px] top-[-16px] 2xl:top-[-60px] lg:top-[-20px] md:top-[-80px] md:left-0">
-          <Image
-            className="rounded-3xl border-2 border-white"
-            src={Lion.src}
-            alt="img"
-            width={400}
-            height={1200}
-          />
+      <div className="flex flex-col md:flex-row items-center justify-between w-full space-y-8 md:space-y-0 md:space-x-8">
+        {/* Left Column: About Text */}
+        <div className="md:w-1/2 space-y-6 text-center rounded-lg md:text-left p-6">
+            <h2 className="text-4xl font-semibold text-black">About Us</h2>
+            <p className="text-lg text-black-800">
+            Embark on a journey of unparalleled customer excellence, backed by over 20 years of expertise in delivering exceptional service experiences. We guarantee a journey that will leave you with lasting, nostalgic memories.
+            </p>
+            <p className="text-lg text-black-800">
+            Experience the difference firsthand—because some moments are simply unforgettable. With our commitment to quality and our seasoned expertise, we ensure every moment is crafted to perfection.
+            </p>
         </div>
-        <div className="flex absolute z-[-1] left-1/3 right-[-40px] top-[80px] h-5/6 2xl:top-[-120px] lg:top-[-60px] lg:h-[120%] lg:z-0">
-          <Image
-            className="rounded-3xl border-2 border-white"
-            src={Giraffe.src}
-            alt="img"
-            width={400}
-            height={1200}
-          />
+
+        {/* Right Column: Images */}
+        <div className="md:w-1/2 flex space-x-6 justify-center">
+            {/* First Image */}
+            <div className="relative">
+            <Image
+                className="rounded-xl shadow-lg border-4 border-green1"
+                src={Customer.src}
+                alt="Customer"
+                width={400}
+                height={400}
+            />
+            </div>
+            {/* Second Image */}
+            <div className="relative">
+            <Image
+                className="rounded-xl shadow-lg border-4 border-black"
+                src={Plane.src}
+                alt="Plane"
+                width={400}
+                height={400}
+            />
+            </div>
         </div>
-      </div>
-      <div className="p-4 bg-cream rounded-3xl m-4 left-1/4 absolute xl:top-[80px] xl:left-2/3">
-      <h2 className="text-3xl font-bold text-center text-black-800 mb-6">
-          About Us
-        </h2>
-        <p className="regular-14 xl:regular-16 text-center">
-        Embark on a journey of unparalleled customer excellence, backed by over 20 years of expertise in delivering exceptional service experiences. We guarantee a journey that will leave you with lasting, nostalgic memories.
+    </div>
 
-Experience the difference firsthand—because some moments are simply unforgettable.
-
-With our commitment to quality and our seasoned expertise, we ensure every moment is crafted to perfection, leaving you with memories that stand the test of time.
-
-We are the heartbeat of your journey, guiding you to exceptional experiences every step of the way.
-        </p>
-      </div>
     </section>
   );
 };

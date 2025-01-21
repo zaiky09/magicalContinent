@@ -11,7 +11,7 @@ const services: Service[] = [
   { id: 1, title: "Concierge Services", description: "Tailored assistance for all your needs.", icon: "🛎️" },
   { id: 2, title: "Executive Car Services", description: "Luxury transportation for executives.", icon: "🚗" },
   { id: 3, title: "Ticket Booking", description: "Hassle-free ticket reservations.", icon: "🎫" },
-  { id: 4, title: "Hotel Booking", description: "Find the perfect stay effortlessly.", icon: "🏨" },
+  { id: 4, title: "Accomodation/Hotel Booking", description: "Find the perfect stay effortlessly.", icon: "🏨" },
   { id: 5, title: "Hotel Shuttle", description: "Convenient and reliable hotel shuttles.", icon: "🚌" },
   { id: 6, title: "Tour Itineraries", description: "Customized itineraries for unforgettable trips.", icon: "🗺️" },
   { id: 7, title: "Ease of Entry", description: "Streamlined entry processes for your travel.", icon: "🛂" },

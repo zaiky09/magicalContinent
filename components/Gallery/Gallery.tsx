@@ -15,7 +15,7 @@ const Gallery = () => {
         {/* First Image */}
         <div className="flex justify-center items-center">
           <Image
-            className="rounded-3xl border-2 border-green1"
+            className="rounded-3xl border-2 border-white"
             src={Giraffe.src}
             alt="Giraffes"
             width={400}
@@ -26,7 +26,7 @@ const Gallery = () => {
         {/* Second Image */}
         <div className="flex justify-center items-center">
           <Image
-            className="rounded-3xl border-2 border-green1"
+            className="rounded-3xl border-2 border-white"
             src={Leo.src}
             alt="Lion"
             width={400}
@@ -37,7 +37,7 @@ const Gallery = () => {
         {/* Third Image */}
         <div className="flex justify-center items-center">
           <Image
-            className="rounded-3xl border-2 border-green1"
+            className="rounded-3xl border-2 border-white"
             src={Lion.src}
             alt="Lioness"
             width={400}

@@ -25,7 +25,7 @@ const ContactUs: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-center">
                 <i className="bx bx-phone text-black text-2xl mr-4"></i>
-                <span className="text-black-700">+254 721-772473</span>
+                <span className="text-black-700">+254 714-837324</span>
               </li>
               <li className="flex items-center">
                 <i className="bx bx-envelope text-black text-2xl mr-4"></i>

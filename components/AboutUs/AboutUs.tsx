@@ -33,10 +33,14 @@ const AboutUs = () => {
       <h2 className="text-3xl font-bold text-center text-black-800 mb-6">
           About Us
         </h2>
-        <p className="regular-14 xl:regular-16">
-          Unique opportunities at the best prices! Here you will find specific
-          trip suggestions based on promotional prices for flights, hotels and
-          transfers.
+        <p className="regular-14 xl:regular-16 text-center">
+        Embark on a journey of unparalleled customer excellence, backed by over 20 years of expertise in delivering exceptional service experiences. We guarantee a journey that will leave you with lasting, nostalgic memories.
+
+Experience the difference firsthand—because some moments are simply unforgettable.
+
+With our commitment to quality and our seasoned expertise, we ensure every moment is crafted to perfection, leaving you with memories that stand the test of time.
+
+We are the heartbeat of your journey, guiding you to exceptional experiences every step of the way.
         </p>
       </div>
     </section>

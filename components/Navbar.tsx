@@ -35,32 +35,35 @@ const Navbar = () => {
             </Link>
           ))}
         </ul>
+        {/* Hamburger menu for small devices */}
         <div className="lg:hidden" onClick={toggleMenu}>
           <Image
             src="./bx-menu-alt-right.svg"
             alt="menu"
             width="32"
             height="32"
-            className="inline-flex cursor-pointer invert lg:hidden"
+            className="inline-flex cursor-pointer invert"
           />
-          <ul
-            className={
-              "absolute top-20 left-0 flex flex-col gap-5 p-3 w-full bg-white lg:hidden" +
-              (!open ? " hidden" : " flex")
-            }
-          >
-            {NAV_LINKS.map((link) => (
-              <Link
-                href={link.href}
-                key={link.key}
-                className="regular-16 text-gray-50 flexCenter cursor-pointer transition-all hover:font-bold"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </ul>
         </div>
       </div>
+
+      {/* Mobile menu */}
+      <ul
+        className={
+          "absolute top-20 left-0 flex flex-col gap-5 p-3 w-full bg-white lg:hidden" +
+          (open ? " flex" : " hidden")
+        }
+      >
+        {NAV_LINKS.map((link) => (
+          <Link
+            href={link.href}
+            key={link.key}
+            className="regular-16 text-gray-50 flexCenter cursor-pointer transition-all hover:font-bold"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </ul>
     </nav>
   );
 };

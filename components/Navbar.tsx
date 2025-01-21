@@ -38,7 +38,7 @@ const Navbar = () => {
         {/* Hamburger menu for small devices */}
         <div className="lg:hidden" onClick={toggleMenu}>
           <Image
-            src="./bx-menu-alt-right.svg"
+            src="/bx-menu-alt-right.svg"
             alt="menu"
             width="32"
             height="32"

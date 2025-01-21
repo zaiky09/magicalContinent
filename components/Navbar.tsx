@@ -37,14 +37,12 @@ const Navbar = () => {
         </ul>
         {/* Hamburger menu for small devices */}
         <div className="lg:hidden" onClick={toggleMenu}>
-          <Image
-            src="/bx-menu-alt-right.svg"
-            alt="menu"
-            width="32"
-            height="32"
-            className="inline-flex cursor-pointer invert"
-          />
+          <i
+            className={`bx bx-menu text-2xl transition-all duration-300 ${
+              open ? "bx-x" : ""
+            }`}></i>
         </div>
+
       </div>
 
       {/* Mobile menu */}

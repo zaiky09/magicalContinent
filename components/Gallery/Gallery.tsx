@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Lion from "../../public/images/LionElephants.jpg";
-import Leo from "../../public/images/Lion.jpg";
-import Giraffe from "../../public/images/Giraffe3.jpg";
+import Table from "../../public/images/Hammock.jpg";
+import Leo from "../../public/images/Amsterdam.jpg";
+import Baloons from "../../public/images/airBaloons.jpg";
 
 const Gallery = () => {
   return (
@@ -12,8 +12,8 @@ const Gallery = () => {
         <div className="flex justify-center items-center">
           <Image
             className="rounded-3xl border-2 border-white object-cover w-full sm:w-[300px] md:w-[400px]"
-            src={Giraffe.src}
-            alt="Giraffes"
+            src={Baloons.src}
+            alt="Baloons"
             width={400}
             height={1200}
           />
@@ -34,7 +34,7 @@ const Gallery = () => {
         <div className="flex justify-center items-center">
           <Image
             className="rounded-3xl border-2 border-white object-cover w-full sm:w-[300px] md:w-[400px]"
-            src={Lion.src}
+            src={Table.src}
             alt="Lioness"
             width={400}
             height={1200}

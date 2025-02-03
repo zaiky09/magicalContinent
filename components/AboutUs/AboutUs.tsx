@@ -16,7 +16,7 @@ const AboutUs = () => {
         <div className="text-center p-6 space-y-6">
           <h2 className="text-3xl font-bold text-center text-gray-900">About Us</h2>
           <p className="text-lg text-black-800">
-            Embark on a journey of unparalleled customer excellence, backed by over <strong>20 years</strong> of expertise in delivering exceptional service experiences. We guarantee a journey that will leave you with lasting, nostalgic memories.
+            Embark on a journey of unparalleled customer excellence, backed by over 20 years of expertise in delivering exceptional service experiences. We guarantee a journey that will leave you with lasting, nostalgic memories.
           </p>
           <p className="text-lg text-black-800">
             Experience the difference firsthand—because some moments are simply unforgettable. With our commitment to quality and our seasoned expertise, we ensure every moment is crafted to perfection.

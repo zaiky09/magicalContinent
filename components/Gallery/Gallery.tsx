@@ -19,18 +19,18 @@ const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    Baloons.src,
-    Lion.src,
-    Amsterdam.src,
-    Hammock.src,
-    Ghana.src,
-    Leopard.src,
-    Giraffe3.src,
-    Egypt1.src,
-    SouthAfrica.src,
     Meercats.src,
     Desert.src,
-    Crane.src
+    Crane.src,
+    Baloons.src,
+    Ghana.src,
+    Amsterdam.src,
+    Lion.src,
+    Hammock.src,
+    Leopard.src,
+    Egypt1.src,
+    Giraffe3.src,
+    SouthAfrica.src
   ];
 
   const nextImages = () => {

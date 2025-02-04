@@ -13,16 +13,16 @@ const AboutUs = () => {
       <div className="flex flex-col lg:flex-row items-center w-full space-y-12 lg:space-y-0 lg:space-x-12">
         {/* About Text Section */}
         <div className="lg:w-1/2 text-center lg:text-left space-y-6">
-          <h2 className="text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
+          <h2 className="text-4xl font-extrabold text-green1 tracking-tight leading-tight">
             About Us
           </h2>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-green1 leading-relaxed">
             Embark on a journey of unparalleled customer excellence, backed by
             over 20 years of expertise in delivering exceptional service
             experiences. We guarantee a journey that will leave you with
             lasting, nostalgic memories.
           </p>
-          <p className="text-lg text-gray-700 leading-relaxed">
+          <p className="text-lg text-green1 leading-relaxed">
             Experience the difference firsthand—because some moments are simply
             unforgettable. With our commitment to quality and our seasoned
             expertise, we ensure every moment is crafted to perfection.

@@ -5,35 +5,35 @@ const ContactUs: React.FC = () => {
     <section className="bg-white py-12 px-6 lg:px-20" id="contact">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <h2 className="text-3xl font-bold text-center text-black-800 mb-6">
+        <h2 className="text-4xl font-extrabold text-center text-green1 mb-4">
           Contact Us
         </h2>
-        <p className="text-center text-black-600 mb-12">
+        <p className="text-center text-green1 mb-12">
           Feel free to reach out to us for inquiries or assistance!
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Information */}
           <div className="bg-cream shadow-md rounded-lg p-6">
-            <h3 className="text-2xl font-semibold text-black-800 mb-4">
+            <h3 className="text-2xl font-semibold text-green1 mb-4">
               Get in Touch
             </h3>
-            <p className="text-black-600 mb-6">
+            <p className="text-green1 mb-6">
               We would love to hear from you! Contact us via any of the channels
               below:
             </p>
             <ul className="space-y-4">
               <li className="flex items-center">
-                <i className="bx bx-phone text-black text-2xl mr-4"></i>
-                <span className="text-black-700">+254 714-837324</span>
+                <i className="bx bx-phone text-green1 text-2xl mr-4"></i>
+                <span className="text-green1">+254 714-837324</span>
               </li>
               <li className="flex items-center">
-                <i className="bx bx-envelope text-black text-2xl mr-4"></i>
-                <span className="text-black">magicalcontinentltd@outlook.com</span>
+                <i className="bx bx-envelope text-green1 text-2xl mr-4"></i>
+                <span className="text-green1">magicalcontinentltd@outlook.com</span>
               </li>
               <li className="flex items-center">
-                <i className="bx bx-map text-black text-2xl mr-4"></i>
-                <span className="text-black">
+                <i className="bx bx-map text-green1 text-2xl mr-4"></i>
+                <span className="text-green1">
                   Kirichwa Gardens Road, Nairobi, Kenya
                 </span>
               </li>
@@ -42,10 +42,10 @@ const ContactUs: React.FC = () => {
 
           {/* Map */}
           <div className="bg-white shadow-md rounded-lg p-6">
-            <h3 className="text-2xl font-semibold text-black mb-4">
+            <h3 className="text-2xl font-semibold text-green1 mb-4">
               Our Location
             </h3>
-            <p className="black mb-6">
+            <p className="text-green1 mb-6">
               Find us at our office or contact us for more details.
             </p>
             <iframe

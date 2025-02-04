@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="bg-cream text-black padding-container py-4 lg:py-10 w-[100vw] flex justify-center lg:justify-between">
+    <div className="bg-cream text-green1 padding-container py-4 lg:py-10 w-[100vw] flex justify-center lg:justify-between">
       <div className="max-container flex items-center lg:items-start w-full lg:flex-row flex-col justify-center lg:justify-between">
         <div className="flex-col mb-4">
           <Link href="/" className="flex justify-center">

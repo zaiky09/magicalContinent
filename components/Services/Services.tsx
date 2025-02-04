@@ -35,8 +35,8 @@ const Services: React.FC = () => {
   return (
     <section id="services" className="relative flex items-center py-20 px-6 md:px-12 lg:px-24 bg-gradient-to-br from-white to-cream rounded-3xl shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-4">Our Services</h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        <h2 className="text-4xl font-extrabold text-center text-green1 mb-4">Our Services</h2>
+        <p className="text-center text-green1 mb-12 max-w-2xl mx-auto">
           Discover a wide range of services designed to make your journey seamless and stress-free.
         </p>
 

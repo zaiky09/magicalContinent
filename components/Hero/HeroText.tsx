@@ -4,16 +4,25 @@ import Link from "next/link";
 
 export const HeroText = () => {
   return (
-    <div className="left-[4%] w-10/12 absolute regular-14 max-container top-1/3 z-1 xl:w-3/6 bg-cream/[.60] p-4 rounded-3xl xl:left-[12%] xl:regular-18 lg:left-[7%] md:left-[7%] lg:w-4/6 md:w-4/5 sm:left-[3%]">
-      <h1 className="regular-20 text-black mb-6 [text-shadow:_0_1px_0_rgb(0_0_0_/_80%)] 2xl:regular-64 xl:regular-40 md:regular-32 sm:regular-24">
-        Excellent Travel Services with ease.
+    <div className="absolute top-1/3 left-[5%] w-11/12 md:w-4/5 lg:w-3/5 xl:w-1/2 bg-white/80 backdrop-blur-md p-8 rounded-3xl shadow-lg">
+      {/* Heading */}
+      <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight mb-6">
+        Excellent Travel Services with Ease.
       </h1>
+      
+      {/* Subheading (Optional) */}
+      <p className="text-lg sm:text-xl md:text-2xl text-gray-700 leading-relaxed mb-6">
+        Experience seamless and luxurious travel arrangements designed just for you.
+      </p>
+
+      {/* Call-to-Action Button */}
       <Link href="#contact">
         <Button
           type="button"
           title="Call Now"
           variant="btn_light_lime"
-          width=""
+          width="w-auto"
+          // className="px-8 py-4 text-lg font-medium rounded-full shadow-md hover:shadow-xl transition-all duration-300"
         />
       </Link>
     </div>

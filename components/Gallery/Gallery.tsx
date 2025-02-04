@@ -9,8 +9,8 @@ import Giraffe3 from "../../public/images/Giraffe3.jpg";
 // import Ghana from "../../public/images/Ghana.jpg";
 import Egypt1 from "../../public/images/Egypt1.jpg";
 import SouthAfrica from "../../public/images/SouthAfrica.jpg";
-import Lion from "../../public/images/LionElephants.jpg";
-import Leopard from "../../public/images/Buffalo.jpg";
+import LionCubs from "../../public/images/LionCubs.jpg";
+import Buffalo from "../../public/images/Buffalo.jpg";
 import Meercats from "../../public/images/Meercats.jpg";
 import Desert from "../../public/images/Desert.jpg";
 import Crane from "../../public/images/Crane.jpg";
@@ -27,9 +27,9 @@ const Gallery = () => {
     Nigeria,
     Baloons,
     Amsterdam,
-    Lion,
+    LionCubs,
     Hammock,
-    Leopard,
+    Buffalo,
     Egypt1,
     Giraffe3,
     SouthAfrica

@@ -1,84 +1,58 @@
 "use client"; // Mark this component as a Client Component
 
-import React, { useState } from "react";
+import React from "react";
+import Image from "next/image";
 
 interface Service {
   id: number;
   title: string;
   description: string;
-  icon: string; // Placeholder for icons or images
+  icon: string; // Path to the icon image
 }
 
 const services: Service[] = [
-  { id: 1, title: "Concierge Services", description: "Tailored assistance for all your needs.", icon: "🛎️" },
-  { id: 2, title: "Executive Car Services", description: "Luxury transportation for executives.", icon: "🚗" },
-  { id: 3, title: "Ticket Booking", description: "Hassle-free ticket reservations.", icon: "🎫" },
-  { id: 4, title: "Accomodation/Hotel Booking", description: "Find the perfect stay effortlessly.", icon: "🏨" },
-  { id: 5, title: "Hotel Shuttle", description: "Convenient and reliable hotel shuttles.", icon: "🚌" },
-  { id: 6, title: "Tour Itineraries", description: "Customized itineraries for unforgettable trips.", icon: "🗺️" },
-  { id: 7, title: "Ease of Entry", description: "Streamlined entry processes for your travel.", icon: "🛂" },
-  { id: 8, title: "Ease of Relocation", description: "Seamless relocation solutions.", icon: "📦" },
+  { id: 1, title: "Concierge Services", description: "We help you handle your visa needs effortlessly.", icon: "/images/Concierge.jpg" },
+  { id: 2, title: "Executive Car Services", description: "Comprehensive travel insurance solutions.", icon: "/images/ExecutiveCar.jpg" },
+  { id: 3, title: "Ticket Booking", description: "Organize exciting and meaningful team events.", icon: "/images/Ticket.jpg" },
+  { id: 4, title: "Accommodation/Hotel Booking", description: "Audio-visual solutions for conferences.", icon: "/images/HotelBooking.jpg" },
+  { id: 5, title: "Hotel Shuttle", description: "Seamless group travel management.", icon: "/images/Shuttle.jpg" },
+  { id: 6, title: "Tour Itenaries", description: "Hassle-free air ticket booking.", icon: "/images/TourItenaries.jpg" },
+  { id: 7, title: "Ease of Entry", description: "Find and book top-tier hotels.", icon: "/images/EaseOfEntry.jpg" },
+  { id: 8, title: "Ease of Relocation", description: "Explore the best destinations with us.", icon: "/images/EaseOfRelocation.jpg" },
 ];
 
 const Services: React.FC = () => {
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
-
-  const handleServiceClick = (service: Service) => {
-    setSelectedService(service);
-  };
-
-  const handleBackClick = () => {
-    setSelectedService(null);
-  };
-
-  const handleCallNowClick = () => {
-    // Scroll to the contact section
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <section id="services" className="relative flex max-container padding-container items-center py-20 mb-0 rounded-3xl bg-cream">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-lg">
-        <h2 className="text-3xl font-bold text-center text-gray-900">Our Services</h2>
-        <p className="text-center text-gray-600 mt-2">Explore the wide range of services we offer to make your life easier.</p>
+    <section id="services" className="py-20 bg-gray-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">Our Services</h2>
+        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          Discover a wide range of services designed to make your journey seamless and stress-free.
+        </p>
 
-        {/* Display Services Grid or Selected Service Details */}
-        {selectedService ? (
-          <div className="mt-8 bg-white shadow-md rounded-lg p-6 text-center">
-            <div className="text-4xl mb-4">{selectedService.icon}</div>
-            <h3 className="text-xl font-semibold text-black">{selectedService.title}</h3>
-            <p className="text-gray-600 mt-2">{selectedService.description}</p>
-            <button
-              onClick={handleCallNowClick}
-              className="mt-4 bg-black text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors duration-300"
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {services.map((service) => (
+            <div
+              key={service.id}
+              className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out transform hover:-translate-y-2"
             >
-              Call Now
-            </button>
-            <button
-              onClick={handleBackClick}
-              className="mt-4 ml-2 bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-300"
-            >
-              Back
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                onClick={() => handleServiceClick(service)}
-                className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300 cursor-pointer"
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold text-black">{service.title}</h3>
-                {/* <p className="text-gray-600 mt-2">{service.description}</p> */}
+              <div className="relative h-48 w-full">
+                <Image
+                  src={service.icon}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover rounded-t-lg"
+                  priority={service.id <= 4} // Prioritize loading above-the-fold images
+                />
               </div>
-            ))}
-          </div>
-        )}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{service.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

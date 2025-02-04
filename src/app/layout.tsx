@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
 import "./globals.css";
 import "../../components/Services/services.css";
-
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-
-// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Magical Continent Ltd",
   description: "Want to find your dreamy holidays? You are in the right place!",
+  icons: {
+    icon: "/7favicon.png", // Path to the favicon
+  },
 };
 
 export default function RootLayout({
@@ -20,6 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl" className="overflow-x-hidden">
+      <head>
+        {/* Manually add the favicon link */}
+        <link rel="icon" href="/7favicon.png" />
+      </head>
       <body>
         <div className="flexCenter flex-col">
           <Navbar />

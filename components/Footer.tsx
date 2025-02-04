@@ -17,7 +17,7 @@ const Footer = () => {
               height="143"
             />
           </Link>
-          <p>© 2025 Magical Continent Ltd</p>
+          <p>Copyright © 2025 Magical Continent Ltd. All Rights Reserved.</p>
         </div>
         <div className="flex-col mb-4">
           <h3 className="uppercase text-lg mb-4">Navigation</h3>

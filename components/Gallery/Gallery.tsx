@@ -6,7 +6,7 @@ import Hammock from "../../public/images/Hammock.jpg";
 import Amsterdam from "../../public/images/Amsterdam.jpg";
 import Baloons from "../../public/images/airBaloons.jpg";
 import Giraffe3 from "../../public/images/Giraffe3.jpg";
-import Ghana from "../../public/images/Ghana.jpg"; // Add your other images
+import Ghana from "../../public/images/Ghana.jpg";
 import Egypt1 from "../../public/images/Egypt1.jpg";
 import SouthAfrica from "../../public/images/SouthAfrica.jpg";
 import Lion from "../../public/images/LionElephants.jpg";
@@ -19,18 +19,18 @@ const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    Meercats.src,
-    Desert.src,
-    Crane.src,
-    Baloons.src,
-    Ghana.src,
-    Amsterdam.src,
-    Lion.src,
-    Hammock.src,
-    Leopard.src,
-    Egypt1.src,
-    Giraffe3.src,
-    SouthAfrica.src
+    Meercats,
+    Desert,
+    Crane,
+    Baloons,
+    Ghana,
+    Amsterdam,
+    Lion,
+    Hammock,
+    Leopard,
+    Egypt1,
+    Giraffe3,
+    SouthAfrica
   ];
 
   const nextImages = () => {
@@ -48,6 +48,7 @@ const Gallery = () => {
       {/* Left Arrow */}
       <button
         onClick={prevImages}
+        aria-label="Previous Images"
         className="absolute left-0 z-10 bg-white p-7 rounded-full shadow-lg hover:bg-gray-100 transition-transform transform -translate-x-1/2"
         style={{ top: "50%", transform: "translateY(-50%)" }}
       >
@@ -56,14 +57,14 @@ const Gallery = () => {
 
       {/* Image Gallery */}
       <div className="flex flex-wrap justify-center gap-4 w-full relative h-auto">
-        {images.slice(currentIndex, currentIndex + 3).map((src, index) => (
+        {images.slice(currentIndex, currentIndex + 3).map((image, index) => (
           <div key={index} className="flex justify-center items-center">
             <Image
-              className="rounded-3xl border-2 border-white object-cover w-full sm:w-[300px] md:w-[400px]"
-              src={src}
+              className="rounded-3xl border-2 border-white object-cover w-full sm:w-[300px] md:w-[400px] lg:w-[500px] transition-all duration-500 ease-in-out transform hover:scale-105"
+              src={image}
               alt={`Image ${currentIndex + index + 1}`}
-              width={400}
-              height={1200}
+              width={500}
+              height={400}
             />
           </div>
         ))}
@@ -72,6 +73,7 @@ const Gallery = () => {
       {/* Right Arrow */}
       <button
         onClick={nextImages}
+        aria-label="Next Images"
         className="absolute right-0 z-10 bg-white p-7 rounded-full shadow-lg hover:bg-gray-100 transition-transform transform translate-x-1/2"
         style={{ top: "50%", transform: "translateY(-50%)" }}
       >

@@ -52,8 +52,8 @@ const Services: React.FC = () => {
                 className="object-cover rounded-lg"
               />
             </div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">{selectedService.title}</h3>
-            <p className="text-gray-600 leading-relaxed mb-6">{selectedService.description}</p>
+            <h3 className="text-2xl font-semibold text-green1 mb-4">{selectedService.title}</h3>
+            <p className="text-green1 leading-relaxed mb-6">{selectedService.description}</p>
             <button
               onClick={handleBackClick}
               className="bg-gold text-white px-6 py-2 rounded-lg hover:bg-green1 transition-colors duration-300"
@@ -80,7 +80,7 @@ const Services: React.FC = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-semibold text-green1 mb-3">{service.title}</h3>
                   {/* <p className="text-sm text-gray-600 leading-relaxed">{service.description}</p> */}
                 </div>
               </div>

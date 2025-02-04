@@ -17,15 +17,14 @@ const AboutUs = () => {
             About Us
           </h2>
           <p className="text-lg text-green1 leading-relaxed">
-            Embark on a journey of unparalleled customer excellence, backed by
-            over 20 years of expertise in delivering exceptional service
-            experiences. We guarantee a journey that will leave you with
-            lasting, nostalgic memories.
+            At Magical Continent Ltd, we are more than just a travel company—we are curators of extraordinary experiences. With 20 years of expertise in the travel and hospitality industry, we have mastered the art of delivering seamless, luxurious, and unforgettable journeys across Africa and beyond.
+
+            Our two decades of experience have allowed us to build a deep understanding of global and regional travel trends, ensuring that every itinerary we craft is both immersive and meticulously planned. From elite concierge services to tailor-made itineraries, we go beyond conventional travel to offer personalized experiences that reflect your unique preferences.
           </p>
           <p className="text-lg text-green1 leading-relaxed">
-            Experience the difference firsthand—because some moments are simply
-            unforgettable. With our commitment to quality and our seasoned
-            expertise, we ensure every moment is crafted to perfection.
+            At the heart of Magical Continent Ltd is a commitment to excellence, reliability, and customer satisfaction. Whether it’s business travel, leisure getaways, or exclusive luxury retreats, we bring you the best in hospitality, convenience, and comfort.
+
+            Let our 20 years of expertise be your guide to effortless travel. With us, every journey is not just a trip—it’s an experience of a lifetime.
           </p>
           {/* <button className="px-6 py-3 mt-4 bg-gold text-white text-lg font-medium rounded-lg shadow-md hover:bg-green1 transition-all">
             Learn More

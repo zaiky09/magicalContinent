@@ -22,7 +22,7 @@ const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const images = [
-    Meercats,
+    Gorillas,
     VictoriaFalls,
     Crane,
     Baloons,
@@ -36,7 +36,7 @@ const Gallery = () => {
     SouthAfrica,
     Madagascar,  
     Desert,
-    Gorillas
+    Meercats
     
   ];
 

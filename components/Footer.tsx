@@ -49,13 +49,13 @@ const Footer = () => {
         <div className="flex flex-col items-center lg:items-start">
           <h3 className="uppercase text-lg mb-4">Social Media</h3>
           <div className="flex space-x-4">
-            <a href="https://facebook.com">
+            <a href="https://facebook.com"target="_blank" rel="noopener noreferrer">
               <i className="bx bxl-facebook-square text-2xl hover:text-[#7F9492]"></i>
             </a>
-            <a href="https://instagram.com">
+            <a href="https://instagram.com"target="_blank" rel="noopener noreferrer">
               <i className="bx bxl-instagram text-2xl hover:text-[#7F9492]"></i>
             </a>
-            <a href="https://linkedin.com">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
               <i className="bx bxl-linkedin-square text-2xl hover:text-[#7F9492]"></i>
             </a>
           </div>

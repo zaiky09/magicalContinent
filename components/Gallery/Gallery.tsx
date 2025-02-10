@@ -1,6 +1,6 @@
-"use client"; // Mark this component as a Client Component
+"use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Madagascar from "../../public/images/Madagascar.jpg";
 import Amsterdam from "../../public/images/Amsterdam.jpg";
@@ -18,58 +18,91 @@ import Dikdik from "../../public/images/Dikdik.jpg";
 import Gorillas from "../../public/images/Gorillas.jpg";
 import VictoriaFalls from "../../public/images/VictoriaFalls.jpg";
 
+const images = [
+  Gorillas,
+  VictoriaFalls,
+  Crane,
+  Baloons,
+  Amsterdam,
+  Seychelles,
+  Buffalo,
+  LionCubs,
+  Dikdik,
+  Egypt1,
+  Giraffe3,
+  SouthAfrica,
+  Madagascar,
+  Desert,
+  Meercats,
+];
+
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [visibleImages, setVisibleImages] = useState(3);
 
-  const images = [
-    Gorillas,
-    VictoriaFalls,
-    Crane,
-    Baloons,
-    Amsterdam,
-    Seychelles,
-    Buffalo,
-    LionCubs,
-    Dikdik,
-    Egypt1,
-    Giraffe3,
-    SouthAfrica,
-    Madagascar,  
-    Desert,
-    Meercats
-    
-  ];
+  useEffect(() => {
+    const updateVisibleImages = () => {
+      if (window.innerWidth < 640) {
+        setVisibleImages(1); // Mobile: Show 1 image
+      } else if (window.innerWidth < 1024) {
+        setVisibleImages(2); // Tablet: Show 2 images
+      } else {
+        setVisibleImages(3); // Desktop: Show 3 images
+      }
+    };
 
-  const nextImages = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 3) % images.length);
-  };
+    updateVisibleImages();
+    window.addEventListener("resize", updateVisibleImages);
+    return () => window.removeEventListener("resize", updateVisibleImages);
+  }, []);
 
-  const prevImages = () => {
+  const nextImages = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + visibleImages) % images.length);
+  }, [visibleImages]);
+
+  const prevImages = useCallback(() => {
     setCurrentIndex((prevIndex) =>
-      prevIndex - 3 < 0 ? images.length - 3 : prevIndex - 3
+      prevIndex - visibleImages < 0 ? images.length - visibleImages : prevIndex - visibleImages
     );
-  };
+  }, [visibleImages]);
+
+  // Swipe Gesture Support for Mobile
+  useEffect(() => {
+    let touchStartX = 0;
+    let touchEndX = 0;
+  
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.touches[0].clientX;
+    };
+  
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].clientX;
+      if (touchStartX - touchEndX > 50) {
+        nextImages();
+      } else if (touchEndX - touchStartX > 50) {
+        prevImages();
+      }
+    };
+  
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+  
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [nextImages, prevImages]);
 
   return (
-    <section className="relative flex flex-wrap justify-center items-center py-5 sm:py-10 mb-10">
-      {/* Left Arrow */}
-      <button
-        onClick={prevImages}
-        aria-label="Previous Images"
-        className="absolute left-0 z-10 bg-white p-7 rounded-full shadow-lg hover:bg-gray-100 transition-transform transform -translate-x-1/2"
-        style={{ top: "50%", transform: "translateY(-50%)" }}
-      >
-        <span className="text-2xl">&larr;</span>
-      </button>
-
+    <section className="relative flex flex-col items-center py-5 sm:py-10">
       {/* Image Gallery */}
-      <div className="flex flex-wrap justify-center gap-4 w-full relative h-auto">
-        {images.slice(currentIndex, currentIndex + 3).map((image, index) => (
+      <div className="flex flex-wrap justify-center gap-4 w-full px-4">
+        {images.slice(currentIndex, currentIndex + visibleImages).map((image, index) => (
           <div key={index} className="flex justify-center items-center">
             <Image
-              className="rounded-3xl border-2 border-white object-cover w-full sm:w-[300px] md:w-[400px] lg:w-[500px] transition-all duration-500 ease-in-out transform hover:scale-105"
+              className="rounded-2xl border-2 border-white object-cover w-[90vw] sm:w-[300px] md:w-[400px] lg:w-[500px] transition-transform duration-500 hover:scale-105"
               src={image}
-              alt={`Image ${currentIndex + index + 1}`}
+              alt={`Gallery Image ${currentIndex + index + 1}`}
               width={500}
               height={400}
             />
@@ -77,15 +110,23 @@ const Gallery = () => {
         ))}
       </div>
 
-      {/* Right Arrow */}
-      <button
-        onClick={nextImages}
-        aria-label="Next Images"
-        className="absolute right-0 z-10 bg-white p-7 rounded-full shadow-lg hover:bg-gray-100 transition-transform transform translate-x-1/2"
-        style={{ top: "50%", transform: "translateY(-50%)" }}
-      >
-        <span className="text-2xl">&rarr;</span>
-      </button>
+      {/* Navigation Buttons */}
+      <div className="flex justify-between w-full max-w-[600px] px-5 mt-5">
+        <button
+          onClick={prevImages}
+          aria-label="Previous Images"
+          className="bg-white p-4 rounded-full shadow-md hover:bg-gray-200 transition-all"
+        >
+          &larr;
+        </button>
+        <button
+          onClick={nextImages}
+          aria-label="Next Images"
+          className="bg-white p-4 rounded-full shadow-md hover:bg-gray-200 transition-all"
+        >
+          &rarr;
+        </button>
+      </div>
     </section>
   );
 };

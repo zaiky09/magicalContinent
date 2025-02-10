@@ -23,14 +23,29 @@ const ContactUs: React.FC = () => {
               below:
             </p>
             <ul className="space-y-4">
+              {/* Phone Number */}
               <li className="flex items-center">
                 <i className="bx bx-phone text-green1 text-2xl mr-4"></i>
-                <span className="text-green1">+254 714-837324</span>
+                <a
+                  href="tel:+254714837324"
+                  className="text-green1 hover:text-[#7F9492] transition-colors"
+                >
+                  +254 714-837324
+                </a>
               </li>
+
+              {/* Email Address */}
               <li className="flex items-center">
                 <i className="bx bx-envelope text-green1 text-2xl mr-4"></i>
-                <span className="text-green1">magicalcontinentltd@outlook.com</span>
+                <a
+                  href="mailto:magicalcontinentltd@outlook.com"
+                  className="text-green1 hover:text-[#7F9492] transition-colors"
+                >
+                  magicalcontinentltd@outlook.com
+                </a>
               </li>
+
+              {/* Address */}
               <li className="flex items-center">
                 <i className="bx bx-map text-green1 text-2xl mr-4"></i>
                 <span className="text-green1">
@@ -49,8 +64,7 @@ const ContactUs: React.FC = () => {
               Find us at our office or contact us for more details.
             </p>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.19164414426!2d36.77627532582244!3d-1.2922792237227505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1a52a1cbd07d%3A0x794f3b7c1b8f9c38!2sKirichwa%20Gardens%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1692211510117!5m2!1sen!2ske
-"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.19164414426!2d36.77627532582244!3d-1.2922792237227505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1a52a1cbd07d%3A0x794f3b7c1b8f9c38!2sKirichwa%20Gardens%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1692211510117!5m2!1sen!2ske"
               width="100%"
               height="250"
               style={{ border: 0 }}

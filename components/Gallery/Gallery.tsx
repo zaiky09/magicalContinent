@@ -19,7 +19,7 @@ import Gorillas from "../../public/images/Gorillas.jpg";
 import VictoriaFalls from "../../public/images/VictoriaFalls.jpg";
 
 const images = [
-  Gorillas,
+  Giraffe3,
   VictoriaFalls,
   Crane,
   Baloons,
@@ -29,7 +29,7 @@ const images = [
   LionCubs,
   Dikdik,
   Egypt1,
-  Giraffe3,
+  Gorillas,
   SouthAfrica,
   Madagascar,
   Desert,

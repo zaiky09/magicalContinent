@@ -1,4 +1,5 @@
 import React from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const ContactUs: React.FC = () => {
   return (
@@ -30,7 +31,7 @@ const ContactUs: React.FC = () => {
                   href="tel:+254714837324"
                   className="text-green1 hover:text-[#7F9492] transition-colors"
                 >
-                  +254 714-837324
+                  +254 732-861973
                 </a>
               </li>
 
@@ -53,6 +54,19 @@ const ContactUs: React.FC = () => {
                 </span>
               </li>
             </ul>
+
+            {/* WhatsApp Chat Button */}
+            <div className="mt-6">
+              <a
+                href="https://wa.me/254714837324?text=Hello!%20I'm%20interested%20in%20your%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-500 text-white flex items-center justify-center px-4 py-2 rounded-lg hover:bg-green-600 transition"
+              >
+                <FaWhatsapp className="mr-2" size={20} />
+                Chat on WhatsApp
+              </a>
+            </div>
           </div>
 
           {/* Map */}

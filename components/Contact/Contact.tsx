@@ -58,7 +58,7 @@ const ContactUs: React.FC = () => {
             {/* WhatsApp Chat Button */}
             <div className="mt-6">
               <a
-                href="https://wa.me/254721772473?text=Hello!%20I'm%20interested%20in%20your%20services."
+                href="https://wa.me/254714837324?text=Hello!%20I'm%20interested%20in%20your%20services."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white flex items-center justify-center px-4 py-2 rounded-lg hover:bg-green-600 transition"

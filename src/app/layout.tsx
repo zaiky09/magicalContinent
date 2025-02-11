@@ -3,6 +3,7 @@ import "./globals.css";
 import "../../components/Services/services.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import Chatbot from "../../components/Chatbox";
 
 export const metadata: Metadata = {
   title: "Magical Continent Ltd",
@@ -29,6 +30,7 @@ export default function RootLayout({
           <main className="relative overflow-x-hidden w-[100vw] lg:w-full">
             {children}
           </main>
+          <Chatbot/>
           <Footer />
         </div>
       </body>

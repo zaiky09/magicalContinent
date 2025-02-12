@@ -19,21 +19,21 @@ import Gorillas from "../../public/images/Gorillas.jpg";
 import VictoriaFalls from "../../public/images/VictoriaFalls.jpg";
 
 const images = [
-  Giraffe3,
-  VictoriaFalls,
-  Crane,
-  Baloons,
-  Amsterdam,
-  Seychelles,
-  Buffalo,
-  LionCubs,
-  Dikdik,
-  Egypt1,
-  Gorillas,
-  SouthAfrica,
-  Madagascar,
-  Desert,
-  Meercats,
+  { src: Giraffe3, description: "Giraffes roaming in the African Savannah" },
+  { src: VictoriaFalls, description: "The majestic Victoria Falls: Zimbabwe" },
+  { src: Crane, description: "A crowned crane in its natural habitat: Uganda" },
+  { src: Baloons, description: "Hot air balloons: Turkey" },
+  { src: Amsterdam, description: "The scenic canals of Amsterdam" },
+  { src: Seychelles, description: "Pristine beaches of Seychelles" },
+  { src: Buffalo, description: "A buffalo in the wild" },
+  { src: LionCubs, description: "Playful lion cubs in the Serengeti" },
+  { src: Dikdik, description: "A shy Dik-Dik antelope in the bush" },
+  { src: Egypt1, description: "Ancient pyramids of Egypt" },
+  { src: Gorillas, description: "Mountain gorillas in Rwanda" },
+  { src: SouthAfrica, description: "Cape Town’s stunning coastline" },
+  { src: Madagascar, description: "Lush forests of Madagascar" },
+  { src: Desert, description: "Golden dunes of the Sahara Desert" },
+  { src: Meercats, description: "A family of meerkats standing watch" },
 ];
 
 const Gallery = () => {
@@ -43,11 +43,11 @@ const Gallery = () => {
   useEffect(() => {
     const updateVisibleImages = () => {
       if (window.innerWidth < 640) {
-        setVisibleImages(1); // Mobile: Show 1 image
+        setVisibleImages(1);
       } else if (window.innerWidth < 1024) {
-        setVisibleImages(2); // Tablet: Show 2 images
+        setVisibleImages(2);
       } else {
-        setVisibleImages(3); // Desktop: Show 3 images
+        setVisibleImages(3);
       }
     };
 
@@ -66,51 +66,23 @@ const Gallery = () => {
     );
   }, [visibleImages]);
 
-  // Swipe Gesture Support for Mobile
-  useEffect(() => {
-    let touchStartX = 0;
-    let touchEndX = 0;
-  
-    const handleTouchStart = (e: TouchEvent) => {
-      touchStartX = e.touches[0].clientX;
-    };
-  
-    const handleTouchEnd = (e: TouchEvent) => {
-      touchEndX = e.changedTouches[0].clientX;
-      if (touchStartX - touchEndX > 50) {
-        nextImages();
-      } else if (touchEndX - touchStartX > 50) {
-        prevImages();
-      }
-    };
-  
-    window.addEventListener("touchstart", handleTouchStart);
-    window.addEventListener("touchend", handleTouchEnd);
-  
-    return () => {
-      window.removeEventListener("touchstart", handleTouchStart);
-      window.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, [nextImages, prevImages]);
-
   return (
     <section className="relative flex flex-col items-center py-5 sm:py-10">
-      {/* Image Gallery */}
       <div className="flex flex-wrap justify-center gap-4 w-full px-4">
         {images.slice(currentIndex, currentIndex + visibleImages).map((image, index) => (
-          <div key={index} className="flex justify-center items-center">
+          <div key={index} className="flex flex-col items-center">
             <Image
               className="rounded-2xl border-2 border-white object-cover w-[90vw] sm:w-[300px] md:w-[400px] lg:w-[500px] transition-transform duration-500 hover:scale-105"
-              src={image}
-              alt={`Gallery Image ${currentIndex + index + 1}`}
+              src={image.src}
+              alt={image.description}
               width={500}
               height={400}
             />
+            <p className="text-center mt-2 text-sm text-gray-700">{image.description}</p>
           </div>
         ))}
       </div>
 
-      {/* Navigation Buttons */}
       <div className="flex justify-between w-full max-w-[600px] px-5 mt-5">
         <button
           onClick={prevImages}

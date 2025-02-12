@@ -30,7 +30,7 @@ const images = [
   { src: Dikdik, description: "A shy Dik-Dik antelope in the bush" },
   { src: Egypt1, description: "Ancient pyramids of Egypt" },
   { src: Gorillas, description: "Mountain gorillas in Rwanda" },
-  { src: SouthAfrica, description: "Cape Town’s stunning coastline" },
+  { src: SouthAfrica, description: "Cape Town’s stunning Table Mountain" },
   { src: Madagascar, description: "Lush forests of Madagascar" },
   { src: Desert, description: "Golden dunes of the Sahara Desert" },
   { src: Meercats, description: "A family of meerkats standing watch" },

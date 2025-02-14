@@ -27,9 +27,6 @@ const AboutUs = () => {
 
             Let our 20 years of expertise be your guide to effortless travel. With us, every journey is not just a trip—it’s an experience of a lifetime.
           </p>
-          {/* <button className="px-6 py-3 mt-4 bg-gold text-white text-lg font-medium rounded-lg shadow-md hover:bg-green1 transition-all">
-            Learn More
-          </button> */}
         </div>
 
         {/* Image Section */}

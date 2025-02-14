@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 import Chatbot from "../../components/Chatbox";
 
 export const metadata: Metadata = {
-  title: "Magical Continent Ltd",
+  title: "Magical Continent | Magical | Magical Continent Ltd | Magical Getaways",
   description: "Want to find your dreamy holidays? You are in the right place!",
   icons: {
     icon: "/7favicon.png",
@@ -26,9 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Magical Continent Ltd",
-              "url": "https://yourdomain.com",
-              "logo": "https://yourdomain.com/logo.png",
+              "name": "Magical Continent",
+              "alternateName": ["Magical Continent Ltd", "Magical", "Magical Getaways"],
+              "url": "https://magicalcontinent.com",
+              "logo": "https://magicalcontinent.com/logo.png",
             }),
           }}
         />

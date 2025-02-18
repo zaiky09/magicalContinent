@@ -1,12 +1,93 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import { FaWhatsapp } from "react-icons/fa";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 const ContactUs: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLHeadingElement>(null);
+  const contactInfoRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  // GSAP animations for the section
+  useEffect(() => {
+    if (sectionRef.current) {
+      gsap.from(sectionRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }
+
+    if (headerRef.current) {
+      gsap.from(headerRef.current, {
+        opacity: 0,
+        y: 30,
+        duration: 1,
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: headerRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }
+
+    if (contactInfoRef.current) {
+      gsap.from(contactInfoRef.current, {
+        opacity: 0,
+        x: -50,
+        duration: 1,
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: contactInfoRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }
+
+    if (mapRef.current) {
+      gsap.from(mapRef.current, {
+        opacity: 0,
+        x: 50,
+        duration: 1,
+        delay: 0.7,
+        scrollTrigger: {
+          trigger: mapRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }
+  }, []);
+
   return (
-    <section className="bg-white py-12 px-6 lg:px-20" id="contact">
+    <section
+      ref={sectionRef}
+      className="bg-white py-12 px-6 lg:px-20"
+      id="contact"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <h2 className="text-4xl font-extrabold text-center text-green1 mb-4">
+        <h2
+          ref={headerRef}
+          className="text-4xl font-extrabold text-center text-green1 mb-4"
+        >
           Contact Us
         </h2>
         <p className="text-center text-green1 mb-12">
@@ -15,7 +96,10 @@ const ContactUs: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Information */}
-          <div className="bg-cream shadow-md rounded-lg p-6">
+          <div
+            ref={contactInfoRef}
+            className="bg-cream shadow-md rounded-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+          >
             <h3 className="text-2xl font-semibold text-green1 mb-4">
               Get in Touch
             </h3>
@@ -70,7 +154,10 @@ const ContactUs: React.FC = () => {
           </div>
 
           {/* Map */}
-          <div className="bg-white shadow-md rounded-lg p-6">
+          <div
+            ref={mapRef}
+            className="bg-white shadow-md rounded-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+          >
             <h3 className="text-2xl font-semibold text-green1 mb-4">
               Our Location
             </h3>

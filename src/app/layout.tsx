@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import "../../components/Services/services.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Chatbot from "../../components/Chatbox";
@@ -18,7 +17,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="overflow-x-hidden">
       <head>
         <link rel="icon" href="/7favicon.png" />
-        
+
+        {/* Preconnect for important external resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://api.example.com" />
+        <link rel="dns-prefetch" href="https://cdn.example.com" />
+
         {/* Structured Data for Logo */}
         <script
           type="application/ld+json"

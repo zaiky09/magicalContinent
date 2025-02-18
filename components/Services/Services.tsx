@@ -1,7 +1,14 @@
 "use client"; // Mark this component as a Client Component
 
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+
+// Define the transition effect for fade-in with slight movement
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+};
 
 interface Service {
   id: number;
@@ -33,61 +40,101 @@ const Services: React.FC = () => {
   };
 
   return (
-    <section id="services" className="relative flex flex-col items-center py-16 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-white to-cream rounded-3xl shadow-xl">
+    <motion.section
+      id="services"
+      className="relative flex flex-col items-center py-16 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-white to-cream rounded-3xl shadow-xl"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }} // Triggers when the section comes into view
+    >
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-green1 mb-6">Our Services</h2>
-        <p className="text-lg text-green1 mb-10 max-w-2xl mx-auto">
+        {/* Title and Description Section */}
+        <motion.h2
+          variants={fadeInUp}
+          // initial="hidden"
+          // animate="visible"
+          className="text-3xl sm:text-4xl font-extrabold text-green1 mb-6"
+        >
+          Our Services
+        </motion.h2>
+        <motion.p
+          variants={fadeInUp}
+          // initial="hidden"
+          // animate="visible"
+          className="text-lg text-green1 mb-10 max-w-2xl mx-auto"
+        >
           Discover a wide range of services designed to make your journey seamless and stress-free.
-        </p>
+        </motion.p>
 
-        {/* Selected Service Details */}
-        {selectedService ? (
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden p-6 md:p-8 w-full max-w-xl mx-auto">
-            <div className="relative w-full h-52 md:h-60 mb-6">
-              <Image
-                src={selectedService.icon}
-                alt={selectedService.title}
-                fill
-                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 60vw, 40vw"
-                className="object-cover rounded-lg"
-              />
-            </div>
-            <h3 className="text-2xl font-semibold text-green1 mb-4">{selectedService.title}</h3>
-            <p className="text-green1 leading-relaxed mb-6">{selectedService.description}</p>
-            <button
-              onClick={handleBackClick}
-              className="bg-gold text-white px-5 py-2 rounded-lg hover:bg-green1 transition-colors duration-300"
+        <AnimatePresence mode="wait">
+          {selectedService ? (
+            <motion.div
+              key="selected-service"
+              variants={fadeInUp} // Apply fadeInUp animation here
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="bg-white shadow-lg rounded-lg overflow-hidden p-6 md:p-8 w-full max-w-xl mx-auto"
             >
-              Back to Services
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
-            {services.map((service) => (
-              <div
-                key={service.id}
-                onClick={() => handleServiceClick(service)}
-                className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 cursor-pointer"
-              >
-                <div className="relative w-full h-44">
-                  <Image
-                    src={service.icon}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover rounded-t-lg"
-                    priority={service.id <= 4}
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-green1 mb-2">{service.title}</h3>
-                </div>
+              <div className="relative w-full h-52 md:h-60 mb-6">
+                <Image
+                  src={selectedService.icon}
+                  alt={selectedService.title}
+                  fill
+                  sizes="(max-width: 768px) 90vw, (max-width: 1200px) 60vw, 40vw"
+                  className="object-cover rounded-lg"
+                  priority
+                />
               </div>
-            ))}
-          </div>
-        )}
+              <h3 className="text-2xl font-semibold text-green1 mb-4">{selectedService.title}</h3>
+              <p className="text-green1 leading-relaxed mb-6">{selectedService.description}</p>
+              <button
+                onClick={handleBackClick}
+                className="bg-gold text-white px-5 py-2 rounded-lg hover:bg-green1 transition-colors duration-300"
+              >
+                Back to Services
+              </button>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="services-grid"
+              variants={fadeInUp} // Apply fadeInUp animation here
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full"
+            >
+              {services.map((service) => (
+                <motion.div
+                  key={service.id}
+                  onClick={() => handleServiceClick(service)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  variants={fadeInUp} // Apply fadeInUp animation here
+                  className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ease-in-out cursor-pointer"
+                >
+                  <div className="relative w-full h-44">
+                    <Image
+                      src={service.icon}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover rounded-t-lg"
+                      priority={service.id <= 4}
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-green1 mb-2">{service.title}</h3>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

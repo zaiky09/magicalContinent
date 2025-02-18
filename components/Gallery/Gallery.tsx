@@ -37,6 +37,11 @@ const images = [
   { src: Meercats, description: "A family of meerkats standing watch" },
 ];
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+};
+
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleImages, setVisibleImages] = useState(3);
@@ -71,7 +76,13 @@ const Gallery = () => {
   }, [visibleImages]);
 
   return (
-    <section className="relative flex flex-col items-center py-5 sm:py-10">
+    <motion.section
+      className="relative flex flex-col items-center py-5 sm:py-10"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }} // Triggers when section comes into view
+      variants={fadeInUp}
+    >
       <div className="flex flex-wrap justify-center gap-4 w-full px-4">
         <AnimatePresence mode="wait">
           {images.slice(currentIndex, currentIndex + visibleImages).map((image, index) => (
@@ -97,23 +108,30 @@ const Gallery = () => {
         </AnimatePresence>
       </div>
 
+      {/* Button Controls with transition effect */}
       <div className="flex justify-between w-full max-w-[600px] px-5 mt-5">
-        <button
+        <motion.button
           onClick={prevImages}
           aria-label="Previous Images"
           className="bg-white p-4 rounded-full shadow-md hover:bg-gray-200 transition-all"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           &larr;
-        </button>
-        <button
+        </motion.button>
+        <motion.button
           onClick={nextImages}
           aria-label="Next Images"
           className="bg-white p-4 rounded-full shadow-md hover:bg-gray-200 transition-all"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
         >
           &rarr;
-        </button>
+        </motion.button>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

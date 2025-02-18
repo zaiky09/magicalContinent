@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, { useEffect, useRef } from "react";
 import { FaWhatsapp } from "react-icons/fa";
@@ -34,8 +34,7 @@ const ContactUs: React.FC = () => {
       gsap.from(headerRef.current, {
         opacity: 0,
         y: 30,
-        duration: 1,
-        delay: 0.3,
+        duration: 0.5, // Reduce duration for faster transitions
         scrollTrigger: {
           trigger: headerRef.current,
           start: "top 80%",
@@ -43,6 +42,7 @@ const ContactUs: React.FC = () => {
           toggleActions: "play none none reverse",
         },
       });
+      
     }
 
     if (contactInfoRef.current) {
@@ -170,10 +170,11 @@ const ContactUs: React.FC = () => {
               height="250"
               style={{ border: 0 }}
               allowFullScreen
-              loading="lazy"
+              loading="lazy" // This ensures the iframe is lazy-loaded
               referrerPolicy="no-referrer-when-downgrade"
               className="rounded-lg"
             ></iframe>
+
           </div>
         </div>
       </div>

@@ -51,16 +51,16 @@ const Services: React.FC = () => {
         {/* Title and Description Section */}
         <motion.h2
           variants={fadeInUp}
-          // initial="hidden"
-          // animate="visible"
+          initial="hidden"
+          animate="visible"
           className="text-3xl sm:text-4xl font-extrabold text-green1 mb-6"
         >
           Our Services
         </motion.h2>
         <motion.p
           variants={fadeInUp}
-          // initial="hidden"
-          // animate="visible"
+          initial="hidden"
+          animate="visible"
           className="text-lg text-green1 mb-10 max-w-2xl mx-auto"
         >
           Discover a wide range of services designed to make your journey seamless and stress-free.

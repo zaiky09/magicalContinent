@@ -1,22 +1,26 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useLayoutEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import Button from "../Button";
 import Link from "next/link";
 
 export const HeroText = () => {
   const [scrollDirection, setScrollDirection] = useState("down");
-  const lastScrollY = useRef(0); // UseRef to persist value
+  const lastScrollY = useRef(0);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    let ticking = false;
+
     const updateScrollDirection = () => {
-      if (window.scrollY > lastScrollY.current) {
-        setScrollDirection("down");
-      } else {
-        setScrollDirection("up");
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrollDirection(window.scrollY > lastScrollY.current ? "down" : "up");
+          lastScrollY.current = window.scrollY;
+          ticking = false;
+        });
+        ticking = true;
       }
-      lastScrollY.current = window.scrollY; // Update the ref
     };
 
     window.addEventListener("scroll", updateScrollDirection);
@@ -25,11 +29,10 @@ export const HeroText = () => {
 
   return (
     <motion.div
-      key={scrollDirection} // Forces re-animation on scroll
-      initial={{ opacity: 0, x: scrollDirection === "down" ? -100 : 100 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: scrollDirection === "down" ? -100 : 100 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      initial={{ opacity: 0, y: scrollDirection === "down" ? 50 : -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: scrollDirection === "down" ? 50 : -50 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
       className="absolute top-1/3 left-[5%] w-11/12 md:w-4/5 lg:w-3/5 xl:w-1/2 bg-cream/35 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-3xl shadow-lg"
     >
       <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6">

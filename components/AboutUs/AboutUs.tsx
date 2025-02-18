@@ -13,59 +13,30 @@ gsap.registerPlugin(ScrollTrigger);
 const AboutUs = () => {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
-  const imageRef1 = useRef(null);
-  const imageRef2 = useRef(null);
+  const imagesRef = useRef(null);
 
   useEffect(() => {
-    // Animation for the text section (reduced fade effect)
-    gsap.from(textRef.current, {
-      opacity: 0.9, // Reduced fade effect
-      y: 50,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: textRef.current,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse",
-      },
+    const tl = gsap.timeline({
+      defaults: { duration: 1, ease: "power2.out" },
     });
 
-    // Animation for the first image
-    gsap.from(imageRef1.current, {
+    // Fade in the entire section smoothly
+    tl.from(sectionRef.current, { opacity: 0, y: 30 });
+
+    // Fade in text with a slight delay
+    tl.from(textRef.current, { opacity: 0, y: 20 }, "-=0.5");
+
+    // Animate images smoothly
+    gsap.from(imagesRef.current, {
       opacity: 0,
-      x: -50,
-      duration: 0.8,
+      y: 30,
+      duration: 1.2,
+      ease: "power2.out",
       scrollTrigger: {
-        trigger: imageRef1.current,
-        start: "top 80%",
+        trigger: imagesRef.current,
+        start: "top 85%",
         end: "bottom 20%",
         toggleActions: "play none none reverse",
-      },
-    });
-
-    // Animation for the second image
-    gsap.from(imageRef2.current, {
-      opacity: 0,
-      x: 50,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: imageRef2.current,
-        start: "top 80%",
-        end: "bottom 20%",
-        toggleActions: "play none none reverse",
-      },
-    });
-
-    // Parallax effect for the section
-    gsap.from(sectionRef.current, {
-      y: 50,
-      opacity: 2.9,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-        end: "bottom 20%",
-        scrub: true,
       },
     });
   }, []);
@@ -76,7 +47,6 @@ const AboutUs = () => {
       ref={sectionRef}
       className="relative flex items-center py-20 px-6 md:px-12 lg:px-24 bg-gradient-to-br from-cream to-white rounded-3xl shadow-xl overflow-hidden"
     >
-      {/* Container for the text and images */}
       <div className="flex flex-col lg:flex-row items-center w-full space-y-12 lg:space-y-0 lg:space-x-12">
         {/* About Text Section */}
         <div ref={textRef} className="lg:w-1/2 text-center lg:text-left space-y-6">
@@ -97,9 +67,9 @@ const AboutUs = () => {
         </div>
 
         {/* Image Section */}
-        <div className="lg:w-1/2 flex justify-center gap-6">
+        <div ref={imagesRef} className="lg:w-1/2 flex justify-center gap-6">
           {/* First Image */}
-          <div ref={imageRef1} className="relative group transform hover:scale-105 transition-all duration-300">
+          <div className="relative group transform hover:scale-105 transition-all duration-300">
             <Image
               className="rounded-2xl shadow-lg"
               src={Flying.src}
@@ -110,7 +80,7 @@ const AboutUs = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-50 rounded-2xl transition-opacity"></div>
           </div>
           {/* Second Image */}
-          <div ref={imageRef2} className="relative group transform hover:scale-105 transition-all duration-300">
+          <div className="relative group transform hover:scale-105 transition-all duration-300">
             <Image
               className="rounded-2xl shadow-lg"
               src={Travel.src}

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "../../components/Services/services.css";
+// import "../../components/Services/services.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Chatbot from "../../components/Chatbox";

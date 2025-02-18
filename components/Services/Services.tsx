@@ -1,7 +1,12 @@
 "use client"; // Mark this component as a Client Component
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
 interface Service {
   id: number;
@@ -23,17 +28,58 @@ const services: Service[] = [
 
 const Services: React.FC = () => {
   const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const serviceCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const detailsRef = useRef<HTMLDivElement>(null);
 
+  // Handle service card click
   const handleServiceClick = (service: Service) => {
     setSelectedService(service);
   };
 
+  // Handle back button click
   const handleBackClick = () => {
     setSelectedService(null);
   };
 
+  // GSAP animations for service cards
+  useEffect(() => {
+    if (!selectedService) {
+      serviceCardsRef.current.forEach((card, index) => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 50,
+          duration: 0.5,
+          delay: index * 0.1,
+          scrollTrigger: {
+            trigger: card,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        });
+      });
+    }
+  }, [selectedService]);
+
+  // GSAP animation for service details
+  useEffect(() => {
+    if (selectedService && detailsRef.current) {
+      gsap.from(detailsRef.current, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power3.out",
+      });
+    }
+  }, [selectedService]);
+
   return (
-    <section id="services" className="relative flex flex-col items-center py-16 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-white to-cream rounded-3xl shadow-xl">
+    <section
+      id="services"
+      ref={sectionRef}
+      className="relative flex flex-col items-center py-16 px-4 sm:px-6 lg:px-12 bg-gradient-to-br from-white to-cream rounded-3xl shadow-xl"
+    >
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-green1 mb-6">Our Services</h2>
         <p className="text-lg text-green1 mb-10 max-w-2xl mx-auto">
@@ -42,7 +88,10 @@ const Services: React.FC = () => {
 
         {/* Selected Service Details */}
         {selectedService ? (
-          <div className="bg-white shadow-lg rounded-lg overflow-hidden p-6 md:p-8 w-full max-w-xl mx-auto">
+          <div
+            ref={detailsRef}
+            className="bg-white shadow-lg rounded-lg overflow-hidden p-6 md:p-8 w-full max-w-xl mx-auto"
+          >
             <div className="relative w-full h-52 md:h-60 mb-6">
               <Image
                 src={selectedService.icon}
@@ -63,12 +112,14 @@ const Services: React.FC = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
-            {services.map((service) => (
+            {services.map((service, index) => (
               <div
-                key={service.id}
-                onClick={() => handleServiceClick(service)}
-                className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 cursor-pointer"
-              >
+              key={service.id}
+              ref={(el) => { serviceCardsRef.current[index] = el }}
+              onClick={() => handleServiceClick(service)}
+              className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 cursor-pointer"
+            >
+            
                 <div className="relative w-full h-44">
                   <Image
                     src={service.icon}

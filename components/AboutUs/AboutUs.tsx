@@ -21,7 +21,7 @@ const AboutUs = () => {
     gsap.from(textRef.current, {
       opacity: 0.9, // Reduced fade effect
       y: 50,
-      duration: 1.5,
+      duration: 0.8,
       scrollTrigger: {
         trigger: textRef.current,
         start: "top 80%",
@@ -34,7 +34,7 @@ const AboutUs = () => {
     gsap.from(imageRef1.current, {
       opacity: 0,
       x: -50,
-      duration: 1.5,
+      duration: 0.8,
       scrollTrigger: {
         trigger: imageRef1.current,
         start: "top 80%",
@@ -47,7 +47,7 @@ const AboutUs = () => {
     gsap.from(imageRef2.current, {
       opacity: 0,
       x: 50,
-      duration: 1.5,
+      duration: 0.8,
       scrollTrigger: {
         trigger: imageRef2.current,
         start: "top 80%",
@@ -60,7 +60,7 @@ const AboutUs = () => {
     gsap.from(sectionRef.current, {
       y: 50,
       opacity: 2.9,
-      duration: 2,
+      duration: 0.8,
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top 80%",

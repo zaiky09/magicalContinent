@@ -49,8 +49,9 @@ const Services: React.FC = () => {
         gsap.from(card, {
           opacity: 0,
           y: 50,
-          duration: 0.5,
-          delay: index * 0.1,
+          duration: 0.4,
+          delay: index * 0.05, // Reduced delay for quicker animation
+          ease: "power2.out", // Smoother easing
           scrollTrigger: {
             trigger: card,
             start: "top 80%",
@@ -68,7 +69,7 @@ const Services: React.FC = () => {
       gsap.from(detailsRef.current, {
         opacity: 0,
         y: 50,
-        duration: 1,
+        duration: 0.7,
         ease: "power3.out",
       });
     }
@@ -99,6 +100,8 @@ const Services: React.FC = () => {
                 fill
                 sizes="(max-width: 768px) 90vw, (max-width: 1200px) 60vw, 40vw"
                 className="object-cover rounded-lg"
+                priority // Ensure priority for the image in focus
+                loading="eager" // Load immediately for smoother experience
               />
             </div>
             <h3 className="text-2xl font-semibold text-green1 mb-4">{selectedService.title}</h3>
@@ -114,12 +117,11 @@ const Services: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
             {services.map((service, index) => (
               <div
-              key={service.id}
-              ref={(el) => { serviceCardsRef.current[index] = el }}
-              onClick={() => handleServiceClick(service)}
-              className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 cursor-pointer"
-            >
-            
+                key={service.id}
+                ref={(el) => { serviceCardsRef.current[index] = el }}
+                onClick={() => handleServiceClick(service)}
+                className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 cursor-pointer"
+              >
                 <div className="relative w-full h-44">
                   <Image
                     src={service.icon}
@@ -127,7 +129,8 @@ const Services: React.FC = () => {
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover rounded-t-lg"
-                    priority={service.id <= 4}
+                    priority={service.id <= 4} // Prioritize the first few images
+                    loading="eager" // Load images immediately for smoother transition
                   />
                 </div>
                 <div className="p-4">

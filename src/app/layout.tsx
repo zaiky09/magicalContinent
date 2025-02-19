@@ -21,8 +21,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Preconnect for important external resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://api.example.com" />
-        <link rel="dns-prefetch" href="https://cdn.example.com" />
 
         {/* Structured Data for Logo */}
         <script

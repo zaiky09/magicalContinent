@@ -33,7 +33,7 @@ export const HeroText = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: scrollDirection === "down" ? 50 : -50 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-      className="absolute top-[25%] left-[5%] w-11/12 max-w-[600px] md:w-4/5 lg:w-3/5 xl:w-1/2 bg-cream/35 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-3xl shadow-lg"
+      className="absolute top-[25%] bottom-[20%] left-[5%] w-11/12 max-w-[600px] md:w-4/5 lg:w-3/5 xl:w-1/2 bg-cream/35 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-3xl shadow-lg"
     >
       <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
         Excellent <span className="text-green1">Travel Services</span> with Ease.

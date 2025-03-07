@@ -43,10 +43,14 @@ export const HeroText = () => {
         Experience seamless and luxurious travel arrangements designed just for you.
       </p>
 
-      <Link href="#contact">
-        <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
-      </Link>
-</motion.div>
-
+      <div className="flex gap-4">
+        <Link href="#contact">
+          <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
+        </Link>
+        <Link href="#services" rel="noopener noreferrer">
+          <Button type="button" title="View Packages" variant="btn_light_lime" width="w-auto" />
+        </Link>
+      </div>
+    </motion.div>
   );
 };

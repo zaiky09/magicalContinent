@@ -14,19 +14,26 @@ const accommodationPackages = [
   { id: 1, continent: "Africa", image: "/images/AfricaService.png", description: "Luxurious lodges and safari stays." },
   { id: 2, continent: "Europe", image: "/images/EuropeService.png", description: "Elegant hotels with a touch of history." },
   { id: 3, continent: "Asia", image: "/images/AsiaService.png", description: "Modern and traditional stays." },
-  { id: 4, continent: "America", image: "/images/AmericaService.png", description: "From city hotels to beach resorts." },
+  { id: 4, continent: "USA", image: "/images/AmericaService.png", description: "From city hotels to beach resorts." },
+  { id: 5, continent: "Middle_East", image: "/images/MiddleEast.png", description: "Habibi! Come to Dubai." },
 ];
 
 const packageDetails = {
   Africa: [
-    { id: 1, image: "/images/africa1.jpg" },
-    { id: 2, image: "/images/africa2.jpg" },
-    { id: 3, image: "/images/africa3.jpg" },
+    { id: 1, image: "/images/Egypt1.jpeg" },
+    { id: 2, image: "/images/Egypt2.jpeg" },
+    { id: 3, image: "/images/Egypt3.jpeg" },
+    { id: 4, image: "/images/Namibia1.jpeg" },
+    { id: 5, image: "/images/Namibia2.jpeg" },
+    { id: 6, image: "/images/Namibia3.jpeg" },
+    { id: 7, image: "/images/SA-Eid.jpeg" },
+    { id: 8, image: "/images/Madagascar1.jpeg" },
+    { id: 9, image: "/images/Madagascar2.jpeg" },
   ],
   Europe: [
-    { id: 1, image: "/images/europe1.jpg" },
-    { id: 2, image: "/images/europe2.jpg" },
-    { id: 3, image: "/images/europe3.jpg" },
+    // { id: 1, image: "/images/europe1.jpeg" },
+    // { id: 2, image: "/images/europe2.jpeg" },
+    // { id: 3, image: "/images/europe3.jpeg" },
   ],
   Asia: [
     { id: 1, image: "/images/PIC1.jpeg" },
@@ -36,10 +43,15 @@ const packageDetails = {
     { id: 5, image: "/images/PIC5.jpeg" },
     { id: 6, image: "/images/PIC6.jpeg" },
   ],
-  America: [
-    { id: 1, image: "/images/america1.jpg" },
-    { id: 2, image: "/images/america2.jpg" },
-    { id: 3, image: "/images/america3.jpg" },
+  USA: [
+    // { id: 1, image: "/images/america1.jpg" },
+    // { id: 2, image: "/images/america2.jpg" },
+    // { id: 3, image: "/images/america3.jpg" },
+  ],
+  Middle_East: [
+    { id: 1, image: "/images/Dubai1.jpeg" },
+    // { id: 2, image: "/images/america2.jpg" },
+    // { id: 3, image: "/images/america3.jpg" },
   ],
 };
 

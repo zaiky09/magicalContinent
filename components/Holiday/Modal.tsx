@@ -39,19 +39,19 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, packageData }) => {
     onClose(); // Close the modal first
     setTimeout(() => {
       document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-    }, 300); // Delay to allow modal to close smoothly
+    }, 300); // Delay for smooth transition
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-2">
       <div className="relative w-full max-w-lg">
-        {/* Image Display */}
-        <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
+        {/* Image Display with Adjusted Height */}
+        <div className="relative w-full h-[80vh] md:h-[500px] lg:h-[600px]">
           <Image 
             src={packageData.images[currentIndex]} 
             alt={packageData.title} 
             layout="fill" 
-            objectFit="cover" 
+            objectFit="contain" 
             className="rounded-lg"
           />
 

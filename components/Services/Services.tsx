@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Button from "../Button";
+import Link from "next/link";
 // import { useRouter } from "next/navigation";
 
 const fadeInUp = {
@@ -86,12 +88,12 @@ const services: Service[] = [
         description: "Find the perfect stay for your journey.",
         icon: "/images/HotelBooking.jpg",
       },
-      {
-        id: 102,
-        title: "Hotel Shuttle",
-        description: "Reliable shuttle services to and from your hotel.",
-        icon: "/images/Shuttle.jpg",
-      },
+      // {
+      //   id: 102,
+      //   title: "Hotel Shuttle",
+      //   description: "Reliable shuttle services to and from your hotel.",
+      //   icon: "/images/Shuttle.jpg",
+      // },
     ],
   },
   {
@@ -128,6 +130,27 @@ const services: Service[] = [
     description:
       "Magical Continent Ltd makes relocation effortless with our comprehensive Ease of Relocation services.",
     icon: "/images/EaseOfRelocation.jpg",
+  },
+  {
+    id: 7,
+    title: "Baggage",
+    description:
+      "Magical Continent Ltd provides solutions for baggage disruptions and baggage storage.",
+    icon: "/images/EaseOfRelocation.jpg",
+    subServices: [
+      {
+        id: 701,
+        title: "Baggage Disruption",
+        description: "Minimize delays, maximize efficiency. Our smart tracking and recovery system ensures lost or delayed baggage is swiftly located and delivered, enhancing passenger experience and operational reliability.",
+        icon: "/images/Baggage.jpg",
+      },
+      {
+        id: 702,
+        title: "Buggage Storage",
+        description: "Secure, convenient, and hassle-free. Our flexible storage options ensure your luggage is safe while you travel, explore, or wait, giving you peace of mind on the go.",
+        icon: "/images/Storage.jpg",
+      },
+    ],
   },
 ];
 
@@ -220,14 +243,11 @@ const Services: React.FC = () => {
                         priority
                       />
                     </div>
-                    {/* <div className="p-4">
-                      <button
-                        onClick={() => router.push("/contact")} // Redirect to contact page
-                        className="bg-gold text-white px-4 py-2 rounded-lg hover:bg-green1 transition-colors duration-300"
-                      >
-                        Get in Touch
-                      </button>
-                    </div> */}
+                    <div className="flex gap-4 justify-center">
+                      <Link href="#contact">
+                        <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
+                      </Link>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -252,6 +272,12 @@ const Services: React.FC = () => {
                 {selectedSubService.title}
               </h3>
               <p className="text-green1">{selectedSubService.description}</p>
+              <div className="flex gap-4 justify-center">
+                  <Link href="#contact">
+                      <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
+                  </Link>
+              </div>
+              
 
               {selectedSubService.id === 101 && (
                 <div className="mt-6">
@@ -305,6 +331,11 @@ const Services: React.FC = () => {
                 {selectedService.title}
               </h3>
               <p className="text-green1">{selectedService.description}</p>
+              <div className="flex gap-4 justify-center">
+                  <Link href="#contact">
+                      <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
+                  </Link>
+              </div>
 
               {selectedService.subServices && (
                 <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -327,7 +358,8 @@ const Services: React.FC = () => {
                         <h4 className="text-md font-semibold text-green1 mb-1">
                           {subService.title}
                         </h4>
-                        <p className="text-sm text-green1">{subService.description}</p>
+                        {/* <p className="text-sm text-green1">{subService.description}</p> */}
+
                       </div>
                     </div>
                   ))}

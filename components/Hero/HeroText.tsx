@@ -47,7 +47,7 @@ export const HeroText = () => {
         <Link href="#contact">
           <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
         </Link>
-        <Link href="#services" rel="noopener noreferrer">
+        <Link href="#holiday" rel="noopener noreferrer">
           <Button type="button" title="View Packages" variant="btn_light_lime" width="w-auto" />
         </Link>
       </div>

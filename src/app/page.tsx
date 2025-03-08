@@ -11,8 +11,9 @@ export default function Home() {
     <>
       <Hero />
       {/* <HolidayPackages/> */}
-      <Gallery />
+      {/* <Gallery /> */}
       <AboutUs />
+      <Gallery />
       <RotatingBanner/>
       <Services />
       <Contact />

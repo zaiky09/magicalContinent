@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import Button from "../Button";
+import { X } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   packageData: {
     title: string;
-    description?: string; // ✅ Make description optional
+    description?: string;
     images: string[];
   } | null;
 }
-
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, packageData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,13 +35,18 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, packageData }) => {
     );
   };
 
-  return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="relative bg-white p-6 rounded-lg shadow-lg w-3/4 md:w-1/2 lg:w-1/3">
-        <button className="absolute top-2 right-2 text-gray-600" onClick={onClose}>X</button>
+  const handleCallNowClick = () => {
+    onClose(); // Close the modal first
+    setTimeout(() => {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    }, 300); // Delay to allow modal to close smoothly
+  };
 
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4">
+      <div className="relative w-full max-w-lg">
         {/* Image Display */}
-        <div className="relative min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
+        <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px]">
           <Image 
             src={packageData.images[currentIndex]} 
             alt={packageData.title} 
@@ -50,30 +55,38 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, packageData }) => {
             className="rounded-lg"
           />
 
-          {/* Buttons Overlay */}
-          <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex gap-4">
-            <Link href="#contact">
-              <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto"/>
-            </Link>
-          </div>
+          {/* Close Button (Overlayed on Image) */}
+          <button
+            className="absolute top-3 right-3 bg-black bg-opacity-50 text-white p-2 rounded-full"
+            onClick={onClose}
+          >
+            <X size={24} />
+          </button>
 
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons Overlay */}
           {packageData.images.length > 1 && (
             <>
               <button 
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full"
                 onClick={prevImage}
               >
                 ◀
               </button>
               <button 
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full"
                 onClick={nextImage}
               >
                 ▶
               </button>
             </>
           )}
+        </div>
+
+        {/* Call Now Button */}
+        <div className="flex justify-center p-4">
+          <button onClick={handleCallNowClick}>
+            <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto"/>
+          </button>
         </div>
       </div>
     </div>

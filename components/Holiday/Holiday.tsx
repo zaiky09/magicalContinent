@@ -19,7 +19,7 @@ const holidayPackages = [
   },
   {
     id: 4,
-    title: "Malaysia",
+    title: "Namibia",
     thumbnailUrl: "/images/NamibiaThumb.jpg",
     images: ["/images/Namibia1.jpeg", "/images/Namibia2.jpeg", "/images/Namibia3.jpeg"],
   },
@@ -56,25 +56,29 @@ const HolidayPackages: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-4 mt-4 ml-4 mr-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
       {holidayPackages.map((pkg) => (
-        <div key={pkg.id} className="cursor-pointer relative" onClick={() => openModal(pkg)}>
-          <div className="relative w-full h-60">
-            <Image 
+        <div
+          key={pkg.id}
+          className="cursor-pointer relative"
+          onClick={() => openModal(pkg)}
+        >
+          <div className="relative w-full h-48 sm:h-60">
+            <Image
               src={pkg.thumbnailUrl}
-              alt={pkg.title} 
-              layout="fill" 
-              objectFit="cover" 
+              alt={pkg.title}
+              layout="fill"
+              objectFit="cover"
               className="rounded-lg shadow-md hover:scale-105 transition"
             />
 
-            {/* Title Overlay (Bottom Right) */}
-            <div className="absolute bottom-3 right-3 bg-black bg-opacity-50 text-white text-lg px-3 py-1 rounded-md">
+            {/* Title Overlay */}
+            <div className="absolute bottom-3 right-3 bg-black bg-opacity-50 text-white text-sm sm:text-lg px-2 sm:px-3 py-1 rounded-md">
               <h3 className="font-semibold">{pkg.title}</h3>
             </div>
 
-            {/* Image Count Overlay (Bottom Left) */}
-            <div className="absolute bottom-3 left-3 bg-gray-900 bg-opacity-70 text-white text-sm px-3 py-1 rounded-md">
+            {/* Image Count Overlay */}
+            <div className="absolute bottom-3 left-3 bg-gray-900 bg-opacity-70 text-white text-xs sm:text-sm px-2 py-1 rounded-md">
               {pkg.images.length} {pkg.images.length === 1 ? "image" : "packages"}
             </div>
           </div>

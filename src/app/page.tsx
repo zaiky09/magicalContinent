@@ -4,13 +4,13 @@ import Contact from "../../components/Contact/Contact";
 import { Hero } from "../../components/Hero/Hero";
 import Services from "../../components/Services/Services";
 import RotatingBanner from "../../components/Hero/RotatingBanner";
-// import HolidayPackages from "../../components/Holiday/Holiday";
+import HolidayPackages from "../../components/Holiday/Holiday";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      {/* <HolidayPackages/> */}
+      <HolidayPackages/>
       {/* <Gallery /> */}
       <AboutUs />
       <Gallery />

@@ -133,10 +133,10 @@ const services: Service[] = [
   },
   {
     id: 7,
-    title: "Baggage",
+    title: "Baggage Assistance",
     description:
       "Magical Continent Ltd provides solutions for baggage disruptions and baggage storage.",
-    icon: "/images/EaseOfRelocation.jpg",
+    icon: "/images/Suitcase.jpg",
     subServices: [
       {
         id: 701,
@@ -146,7 +146,7 @@ const services: Service[] = [
       },
       {
         id: 702,
-        title: "Buggage Storage",
+        title: "Baggage Storage",
         description: "Secure, convenient, and hassle-free. Our flexible storage options ensure your luggage is safe while you travel, explore, or wait, giving you peace of mind on the go.",
         icon: "/images/Storage.jpg",
       },

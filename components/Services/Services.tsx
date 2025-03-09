@@ -33,9 +33,14 @@ const packageDetails = {
     { id: 9, image: "/images/Madagascar2.jpeg" },
   ],
   Europe: [
-    // { id: 1, image: "/images/europe1.jpeg" },
-    // { id: 2, image: "/images/europe2.jpeg" },
-    // { id: 3, image: "/images/europe3.jpeg" },
+    { id: 1, image: "/images/London1.jpeg" },
+    { id: 2, image: "/images/London2.jpeg" },
+    { id: 3, image: "/images/Paris1.jpeg" },
+    { id: 4, image: "/images/Italy1.jpeg" },
+    { id: 5, image: "/images/Switzerland1.jpeg" },
+    { id: 6, image: "/images/Amsterdam1.jpeg" },
+    { id: 7, image: "/images/Spain1.jpeg" },
+    { id: 8, image: "/images/Europe1.jpeg" },
   ],
   Asia: [
     { id: 1, image: "/images/PIC1.jpeg" },
@@ -52,8 +57,9 @@ const packageDetails = {
   ],
   Middle_East: [
     { id: 1, image: "/images/Dubai1.jpeg" },
-    // { id: 2, image: "/images/america2.jpg" },
-    // { id: 3, image: "/images/america3.jpg" },
+    { id: 2, image: "/images/Dubai2.jpeg" },
+    { id: 3, image: "/images/Dubai3.jpeg" },
+    { id: 4, image: "/images/Dubai4.jpeg" },
   ],
 };
 
@@ -245,7 +251,7 @@ const Services: React.FC = () => {
                     </div>
                     <div className="flex gap-4 justify-center">
                       <Link href="#contact">
-                        <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
+                        <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" ></Button>
                       </Link>
                     </div>
                   </div>

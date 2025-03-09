@@ -25,15 +25,27 @@ const holidayPackages = [
   },
   {
     id: 5,
-    title: "Singapore",
-    thumbnailUrl: "/images/SingaporeThumb.jpg",
+    title: "Malaysia",
+    thumbnailUrl: "/images/MalaysiaThumb.jpg",
     images: ["/images/PIC1.jpeg", "/images/PIC2.jpeg", "/images/PIC3.jpeg"],
   },
   {
     id: 6,
-    title: "Malaysia",
-    thumbnailUrl: "/images/MalaysiaThumb.jpg",
+    title: "Singapore",
+    thumbnailUrl: "/images/SingaporeThumb.jpg",
     images: ["/images/PIC4.jpeg", "/images/PIC5.jpeg", "/images/PIC6.jpeg"],
+  },
+  {
+    id: 7,
+    title: "Dubai",
+    thumbnailUrl: "/images/DubaiThumb.jpg",
+    images: ["/images/Dubai1.jpeg", "/images/Dubai2.jpeg", "/images/Dubai3.jpeg", "/images/Dubai4.jpeg"],
+  },
+  {
+    id: 8,
+    title: "Europe",
+    thumbnailUrl: "/images/EuropeThumb.jpg",
+    images: ["/images/Europe1.jpeg", "/images/London1.jpeg", "/images/London2.jpeg", "/images/Paris1.jpeg", "/images/Spain1.jpeg", "/images/Amsterdam1.jpeg", "/images/Italy1.jpeg", "/images/Switzerland1.jpeg"],
   },
 ];
 

@@ -71,6 +71,7 @@ interface SubService {
   title: string;
   description: string;
   icon: string;
+  rate?: string;
 }
 
 interface Service {
@@ -94,12 +95,12 @@ const services: Service[] = [
         description: "Find the perfect stay for your journey.",
         icon: "/images/HotelBooking.jpg",
       },
-      // {
-      //   id: 102,
-      //   title: "Hotel Shuttle",
-      //   description: "Reliable shuttle services to and from your hotel.",
-      //   icon: "/images/Shuttle.jpg",
-      // },
+      {
+        id: 102,
+        title: "Camping",
+        description: "Escape to nature with our hassle-free camping service—premium gear, scenic spots, and unforgettable adventures, all set up for you!",
+        icon: "/images/Camping.jpg",
+      },
     ],
   },
   {
@@ -149,12 +150,21 @@ const services: Service[] = [
         title: "Baggage Disruption",
         description: "Minimize delays, maximize efficiency. Our smart tracking and recovery system ensures lost or delayed baggage is swiftly located and delivered, enhancing passenger experience and operational reliability.",
         icon: "/images/Baggage.jpg",
+        rate: "From $50 per bag"
       },
       {
         id: 702,
         title: "Baggage Storage",
         description: "Secure, convenient, and hassle-free. Our flexible storage options ensure your luggage is safe while you travel, explore, or wait, giving you peace of mind on the go.",
         icon: "/images/Storage.jpg",
+        rate: "From $10 per bag (24hrs)"
+      },
+      {
+        id: 703,
+        title: "Land & Leave",
+        description: "Tailored for VIP and elite travelers seeking to avoid the hassle of baggage retrieval. Our specialized team, positioned within the luggage collection area, retrieves bags directly from the conveyor belt, enabling passengers to move smoothly through immigration and customs without interruption. The baggage is then either entrusted to assigned chauffeurs or transported to the passenger’s desired destination for ultimate convenience.",
+        icon: "/images/LandAndLeave.jpg",
+        rate: "From $100 per person"
       },
     ],
   },
@@ -278,6 +288,7 @@ const Services: React.FC = () => {
                 {selectedSubService.title}
               </h3>
               <p className="text-green1">{selectedSubService.description}</p>
+              <h1 className="text-lg text-green-50"><strong>{selectedSubService.rate}</strong></h1>
               <div className="flex gap-4 justify-center">
                   <Link href="#contact">
                       <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
@@ -336,12 +347,12 @@ const Services: React.FC = () => {
               <h3 className="text-xl font-semibold text-green1 mb-4">
                 {selectedService.title}
               </h3>
-              <p className="text-green1">{selectedService.description}</p>
-              <div className="flex gap-4 justify-center">
+              {/* <p className="text-green1">{selectedService.description}</p> */}
+              {/* <div className="flex gap-4 justify-center">
                   <Link href="#contact">
                       <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
                   </Link>
-              </div>
+              </div> */}
 
               {selectedService.subServices && (
                 <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -364,7 +375,7 @@ const Services: React.FC = () => {
                         <h4 className="text-md font-semibold text-green1 mb-1">
                           {subService.title}
                         </h4>
-                        {/* <p className="text-sm text-green1">{subService.description}</p> */}
+                        <p className="text-sm text-green-50">{subService.rate}</p>
 
                       </div>
                     </div>

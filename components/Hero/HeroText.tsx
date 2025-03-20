@@ -45,14 +45,10 @@ export const HeroText = () => {
 
       <div className="flex gap-4">
         <Link href="#contact">
-          <a>
-            <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
-          </a>
+          <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
         </Link>
         <Link href="#holiday" rel="noopener noreferrer">
-          <a>
-            <Button type="button" title="View Packages" variant="btn_light_lime" width="w-auto" />
-          </a>
+          <Button type="button" title="View Packages" variant="btn_light_lime" width="w-auto" />
         </Link>
       </div>
     </motion.div>

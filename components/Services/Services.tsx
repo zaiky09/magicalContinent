@@ -128,13 +128,14 @@ const services: Service[] = [
       {
         id: 401,
         title: "Nairobi",
-        description: "Experience the vibrant beauty of Nairobi with unforgettable adventures. Let us curate a full day of exploration, taking you to three iconic destinations. Our package includes transportation only. Park entry fees are to be covered by guests.",
+        description: "Experience the vibrant beauty of Nairobi with unforgettable adventures. Let us curate a full day of exploration, taking you to three iconic destinations of your choice. Our package includes transportation only. Park entry fees are to be covered by guests.",
         icon: "/images/KWS.jpg",
         rate: "From $30 per person",
         images: [
           "/images/GiraffeCentre.png",
           "/images/SheldrickTrust.jpg",
           "/images/NationalPark.jpg",
+          "/images/KarenBlixen.jpg",
         ],
       },
       
@@ -382,11 +383,11 @@ const Services: React.FC = () => {
                 {selectedService.title}
               </h3>
               <p className="text-green1">{selectedService.description}</p>
-              {/* <div className="flex gap-4 justify-center">
+              <div className="flex gap-4 justify-center">
                   <Link href="#contact">
                       <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
                   </Link>
-              </div> */}
+              </div>
 
               {selectedService.subServices && (
                 <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">

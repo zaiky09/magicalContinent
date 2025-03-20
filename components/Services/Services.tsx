@@ -43,12 +43,12 @@ const packageDetails = {
     { id: 8, image: "/images/Europe1.jpeg" },
   ],
   Asia: [
-    { id: 1, image: "/images/PIC1.jpeg" },
-    { id: 2, image: "/images/PIC2.jpeg" },
-    { id: 3, image: "/images/PIC3.jpeg" },
-    { id: 4, image: "/images/PIC4.jpeg" },
-    { id: 5, image: "/images/PIC5.jpeg" },
-    { id: 6, image: "/images/PIC6.jpeg" },
+    { id: 1, image: "/images/Malaysia1.jpeg" },
+    { id: 2, image: "/images/Malaysia2.jpeg" },
+    { id: 3, image: "/images/Malaysia3.jpeg" },
+    { id: 4, image: "/images/Singapore1.jpeg" },
+    { id: 5, image: "/images/Singapore2.jpeg" },
+    { id: 6, image: "/images/Singapore3.jpeg" },
   ],
   USA: [
     // { id: 1, image: "/images/america1.jpg" },
@@ -278,7 +278,9 @@ const Services: React.FC = () => {
                     </div>
                     <div className="flex gap-4 justify-center">
                       <Link href="#contact">
-                        <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" ></Button>
+                        <a>
+                          <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" ></Button>
+                        </a>
                       </Link>
                     </div>
                   </div>
@@ -308,7 +310,9 @@ const Services: React.FC = () => {
               <h1 className="text-lg text-green-50"><strong>{selectedSubService.rate}</strong></h1>
               <div className="flex gap-4 justify-center">
                   <Link href="#contact">
-                      <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
+                      <a>
+                        <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
+                      </a>
                   </Link>
               </div>
               
@@ -385,7 +389,9 @@ const Services: React.FC = () => {
               <p className="text-green1">{selectedService.description}</p>
               <div className="flex gap-4 justify-center">
                   <Link href="#contact">
-                      <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
+                      <a>
+                        <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
+                      </a>
                   </Link>
               </div>
 

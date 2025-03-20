@@ -128,7 +128,7 @@ const services: Service[] = [
       {
         id: 401,
         title: "Nairobi",
-        description: "Experience the vibrant beauty of Nairobi with unforgettable adventures. Let us curate a full day of exploration, taking you to three iconic destinations of your choice. Our package includes transportation only. Park entry fees are to be covered by guests.",
+        description: "Experience the vibrant beauty of Nairobi with unforgettable adventures. Let us curate a full day of exploration, taking you to iconic destinations of your choice. Our package includes transportation only. Park entry fees are to be covered by guests.",
         icon: "/images/KWS.jpg",
         rate: "From $30 per person",
         images: [

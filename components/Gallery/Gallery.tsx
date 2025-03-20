@@ -8,7 +8,7 @@ import Amsterdam from "../../public/images/Amsterdam.jpg";
 import Baloons from "../../public/images/airBaloons.jpg";
 import Giraffe3 from "../../public/images/Giraffe3.jpg";
 import Seychelles from "../../public/images/Seychelles.jpg";
-import Egypt1 from "../../public/images/Egypt1.jpg";
+import EgyptGallery from "../../public/images/EgyptGallery.jpg";
 import SouthAfrica from "../../public/images/SouthAfrica.jpg";
 import LionCubs from "../../public/images/LionCubs.jpg";
 import Buffalo from "../../public/images/Buffalo.jpg";
@@ -29,7 +29,7 @@ const images = [
   { src: Buffalo, description: "A buffalo in the wild" },
   { src: LionCubs, description: "Playful lion cubs in the Serengeti" },
   { src: Dikdik, description: "A shy Dik-Dik antelope in the bush" },
-  { src: Egypt1, description: "Ancient pyramids of Egypt" },
+  { src: EgyptGallery, description: "Ancient pyramids of Egypt" },
   { src: Gorillas, description: "Mountain gorillas in Rwanda" },
   { src: SouthAfrica, description: "Cape Town’s stunning Table Mountain" },
   { src: Madagascar, description: "Lush forests of Madagascar" },
@@ -84,7 +84,7 @@ const Gallery = () => {
       variants={fadeInUp}
     >
       <div className="flex flex-wrap justify-center gap-4 w-full px-4">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout">
           {images.slice(currentIndex, currentIndex + visibleImages).map((image, index) => (
             <motion.div
               key={`${currentIndex}-${index}`}

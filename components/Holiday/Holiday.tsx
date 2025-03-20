@@ -27,13 +27,13 @@ const holidayPackages = [
     id: 5,
     title: "Malaysia",
     thumbnailUrl: "/images/MalaysiaThumb.jpg",
-    images: ["/images/PIC1.jpeg", "/images/PIC2.jpeg", "/images/PIC3.jpeg"],
+    images: ["/images/Malaysia1.jpeg", "/images/Malaysia2.jpeg", "/images/Malaysia3.jpeg"],
   },
   {
     id: 6,
     title: "Singapore",
     thumbnailUrl: "/images/SingaporeThumb.jpg",
-    images: ["/images/PIC4.jpeg", "/images/PIC5.jpeg", "/images/PIC6.jpeg"],
+    images: ["/images/Singapore1.jpeg", "/images/Singapore2.jpeg", "/images/Singapore3.jpeg"],
   },
   {
     id: 7,
@@ -79,8 +79,8 @@ const HolidayPackages: React.FC = () => {
             <Image
               src={pkg.thumbnailUrl}
               alt={pkg.title}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'cover' }}
               className="rounded-lg shadow-md hover:scale-105 transition"
             />
 

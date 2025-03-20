@@ -72,6 +72,7 @@ interface SubService {
   description: string;
   icon: string;
   rate?: string;
+  images?: string[];
 }
 
 interface Service {
@@ -85,7 +86,7 @@ interface Service {
 const services: Service[] = [
   {
     id: 1,
-    title: "Hospitality",
+    title: "Looking for Accommodation?",
     description: "Experience world-class hospitality services.",
     icon: "/images/Concierge.jpg",
     subServices: [
@@ -123,6 +124,21 @@ const services: Service[] = [
     description:
       "Magical Continent Ltd crafts personalized tour itineraries to make your travel experiences unforgettable.",
     icon: "/images/TourItenaries.jpg",
+    subServices: [
+      {
+        id: 401,
+        title: "Nairobi",
+        description: "Experience the vibrant beauty of Nairobi with unforgettable adventures. Let us curate a full day of exploration, taking you to three iconic destinations. Our package includes transportation only. Park entry fees are to be covered by guests.",
+        icon: "/images/KWS.jpg",
+        rate: "From $30 per person",
+        images: [
+          "/images/GiraffeCentre.png",
+          "/images/SheldrickTrust.jpg",
+          "/images/NationalPark.jpg",
+        ],
+      },
+      
+    ],
   },
   {
     id: 5,
@@ -326,6 +342,24 @@ const Services: React.FC = () => {
                   </div>
                 </div>
               )}
+              {selectedSubService.id === 401 && selectedSubService.images && (
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {selectedSubService.images.map((img, index) => (
+                    <div 
+                      key={index} 
+                      className="relative h-40 w-full sm:h-48 rounded-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-lg"
+                    >
+                      <Image 
+                        src={img} 
+                        alt={`Nairobi image ${index + 1}`} 
+                        fill 
+                        className="object-contain rounded-lg"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+
 
               <button
                   onClick={() => setSelectedSubService(null)}
@@ -347,7 +381,7 @@ const Services: React.FC = () => {
               <h3 className="text-xl font-semibold text-green1 mb-4">
                 {selectedService.title}
               </h3>
-              {/* <p className="text-green1">{selectedService.description}</p> */}
+              <p className="text-green1">{selectedService.description}</p>
               {/* <div className="flex gap-4 justify-center">
                   <Link href="#contact">
                       <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />

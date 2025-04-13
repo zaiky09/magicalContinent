@@ -28,19 +28,19 @@ const packageDetails = {
     { id: 4, image: "/images/Namibia1.jpeg" },
     { id: 5, image: "/images/Namibia2.jpeg" },
     { id: 6, image: "/images/Namibia3.jpeg" },
-    { id: 7, image: "/images/SA-Eid.jpeg" },
+    // { id: 7, image: "/images/SA-Eid.jpeg" },
     { id: 8, image: "/images/Madagascar1.jpeg" },
     { id: 9, image: "/images/Madagascar2.jpeg" },
   ],
   Europe: [
     { id: 1, image: "/images/London1.jpeg" },
-    { id: 2, image: "/images/London2.jpeg" },
-    { id: 3, image: "/images/Paris1.jpeg" },
+    // { id: 2, image: "/images/London2.jpeg" },
+    // { id: 3, image: "/images/Paris1.jpeg" },
     { id: 4, image: "/images/Italy1.jpeg" },
-    { id: 5, image: "/images/Switzerland1.jpeg" },
-    { id: 6, image: "/images/Amsterdam1.jpeg" },
+    // { id: 5, image: "/images/Switzerland1.jpeg" },
+    // { id: 6, image: "/images/Amsterdam1.jpeg" },
     { id: 7, image: "/images/Spain1.jpeg" },
-    { id: 8, image: "/images/Europe1.jpeg" },
+    // { id: 8, image: "/images/Europe1.jpeg" },
   ],
   Asia: [
     { id: 1, image: "/images/Malaysia1.jpeg" },
@@ -56,10 +56,10 @@ const packageDetails = {
     // { id: 3, image: "/images/america3.jpg" },
   ],
   Middle_East: [
-    { id: 1, image: "/images/Dubai1.jpeg" },
-    { id: 2, image: "/images/Dubai2.jpeg" },
-    { id: 3, image: "/images/Dubai3.jpeg" },
-    { id: 4, image: "/images/Dubai4.jpeg" },
+    // { id: 1, image: "/images/Dubai1.jpeg" },
+    // { id: 2, image: "/images/Dubai2.jpeg" },
+    // { id: 3, image: "/images/Dubai3.jpeg" },
+    // { id: 4, image: "/images/Dubai4.jpeg" },
   ],
 };
 
@@ -101,6 +101,12 @@ const services: Service[] = [
         title: "Camping",
         description: "Escape to nature with our hassle-free camping service—premium gear, scenic spots, and unforgettable adventures, all set up for you!",
         icon: "/images/Camping.jpg",
+      },
+      {
+        id: 103,
+        title: "Disrupted Flight?",
+        description: "Our Flight Disruption Assistance service ensures you're never stranded. In the event of delays, cancellations, or missed connections, we provide immediate support including rebooking options, accommodation arrangements, meal vouchers, and real-time updates—so your journey continues smoothly with minimal stress.",
+        icon: "/images/FlightDisruption.jpg",
       },
     ],
   },
@@ -278,9 +284,9 @@ const Services: React.FC = () => {
                     </div>
                     <div className="flex gap-4 justify-center">
                       <Link href="#contact">
-                        <a>
+                        
                           <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" ></Button>
-                        </a>
+                        
                       </Link>
                     </div>
                   </div>
@@ -310,9 +316,9 @@ const Services: React.FC = () => {
               <h1 className="text-lg text-green-50"><strong>{selectedSubService.rate}</strong></h1>
               <div className="flex gap-4 justify-center">
                   <Link href="#contact">
-                      <a>
+                      
                         <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
-                      </a>
+                      
                   </Link>
               </div>
               
@@ -389,9 +395,9 @@ const Services: React.FC = () => {
               <p className="text-green1">{selectedService.description}</p>
               <div className="flex gap-4 justify-center">
                   <Link href="#contact">
-                      <a>
+                      
                         <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
-                      </a>
+                      
                   </Link>
               </div>
 

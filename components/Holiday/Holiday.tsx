@@ -39,13 +39,13 @@ const holidayPackages = [
     id: 7,
     title: "Dubai",
     thumbnailUrl: "/images/DubaiThumb.jpg",
-    images: ["/images/Dubai1.jpeg", "/images/Dubai2.jpeg", "/images/Dubai3.jpeg", "/images/Dubai4.jpeg"],
+    images: [],
   },
   {
     id: 8,
     title: "Europe",
     thumbnailUrl: "/images/EuropeThumb.jpg",
-    images: ["/images/Europe1.jpeg", "/images/London1.jpeg", "/images/London2.jpeg", "/images/Paris1.jpeg", "/images/Spain1.jpeg", "/images/Amsterdam1.jpeg", "/images/Italy1.jpeg", "/images/Switzerland1.jpeg"],
+    images: ["/images/London1.jpeg", "/images/Spain1.jpeg", "/images/Italy1.jpeg"],
   },
 ];
 

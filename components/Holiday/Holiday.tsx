@@ -7,45 +7,45 @@ import Modal from "./Modal";
 const holidayPackages = [
   {
     id: 1,
-    title: "Madagascar",
-    thumbnailUrl: "/images/MadagascarThumb.jpg",
-    images: ["/images/Madagascar1.jpeg", "/images/Madagascar2.jpeg"],
+    title: "Kenya",
+    thumbnailUrl: "/images/MaasaiMara.jpg",
+    images: ["/images/MagicalContinentFlyer.png"],
   },
-  {
-    id: 2,
-    title: "Egypt",
-    thumbnailUrl: "/images/EgyptThumb.jpg",
-    images: ["/images/Egypt1.jpeg", "/images/Egypt2.jpeg", "/images/Egypt3.jpeg"],
-  },
+  // {
+  //   id: 2,
+  //   title: "Egypt",
+  //   thumbnailUrl: "/images/EgyptThumb.jpg",
+  //   images: ["/images/Egypt1.jpeg", "/images/Egypt2.jpeg", "/images/Egypt3.jpeg"],
+  // },
   {
     id: 4,
     title: "Namibia",
     thumbnailUrl: "/images/NamibiaThumb.jpg",
     images: ["/images/Namibia1.jpeg", "/images/Namibia2.jpeg", "/images/Namibia3.jpeg"],
   },
-  {
-    id: 5,
-    title: "Malaysia",
-    thumbnailUrl: "/images/MalaysiaThumb.jpg",
-    images: ["/images/Malaysia1.jpeg", "/images/Malaysia2.jpeg", "/images/Malaysia3.jpeg"],
-  },
-  {
-    id: 6,
-    title: "Singapore",
-    thumbnailUrl: "/images/SingaporeThumb.jpg",
-    images: ["/images/Singapore1.jpeg", "/images/Singapore2.jpeg", "/images/Singapore3.jpeg"],
-  },
-  {
-    id: 7,
-    title: "Dubai",
-    thumbnailUrl: "/images/DubaiThumb.jpg",
-    images: [],
-  },
+  // {
+  //   id: 5,
+  //   title: "Malaysia",
+  //   thumbnailUrl: "/images/MalaysiaThumb.jpg",
+  //   images: ["/images/Malaysia1.jpeg", "/images/Malaysia2.jpeg", "/images/Malaysia3.jpeg"],
+  // },
+  // {
+  //   id: 6,
+  //   title: "Singapore",
+  //   thumbnailUrl: "/images/SingaporeThumb.jpg",
+  //   images: ["/images/Singapore1.jpeg", "/images/Singapore2.jpeg", "/images/Singapore3.jpeg"],
+  // },
+  // {
+  //   id: 7,
+  //   title: "Dubai",
+  //   thumbnailUrl: "/images/DubaiThumb.jpg",
+  //   images: [],
+  // },
   {
     id: 8,
     title: "Europe",
     thumbnailUrl: "/images/EuropeThumb.jpg",
-    images: ["/images/London1.jpeg", "/images/Spain1.jpeg", "/images/Italy1.jpeg"],
+    images: ["/images/London1.jpeg", "/images/Italy1.jpeg"],
   },
 ];
 

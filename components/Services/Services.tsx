@@ -22,15 +22,15 @@ const accommodationPackages = [
 
 const packageDetails = {
   Africa: [
-    { id: 1, image: "/images/Egypt1.jpeg" },
-    { id: 2, image: "/images/Egypt2.jpeg" },
-    { id: 3, image: "/images/Egypt3.jpeg" },
+    { id: 1, image: "/images/MagicalContinentFlyer.png" },
+    // { id: 2, image: "/images/Egypt2.jpeg" },
+    // { id: 3, image: "/images/Egypt3.jpeg" },
     { id: 4, image: "/images/Namibia1.jpeg" },
     { id: 5, image: "/images/Namibia2.jpeg" },
     { id: 6, image: "/images/Namibia3.jpeg" },
     // { id: 7, image: "/images/SA-Eid.jpeg" },
-    { id: 8, image: "/images/Madagascar1.jpeg" },
-    { id: 9, image: "/images/Madagascar2.jpeg" },
+    // { id: 8, image: "/images/Madagascar1.jpeg" },
+    // { id: 9, image: "/images/Madagascar2.jpeg" },
   ],
   Europe: [
     { id: 1, image: "/images/London1.jpeg" },
@@ -39,7 +39,7 @@ const packageDetails = {
     { id: 4, image: "/images/Italy1.jpeg" },
     // { id: 5, image: "/images/Switzerland1.jpeg" },
     // { id: 6, image: "/images/Amsterdam1.jpeg" },
-    { id: 7, image: "/images/Spain1.jpeg" },
+    // { id: 7, image: "/images/Spain1.jpeg" },
     // { id: 8, image: "/images/Europe1.jpeg" },
   ],
   Asia: [

@@ -91,7 +91,7 @@ const HolidayPackages: React.FC = () => {
 
             {/* Image Count Overlay */}
             <div className="absolute bottom-3 left-3 bg-gray-900 bg-opacity-70 text-white text-xs sm:text-sm px-2 py-1 rounded-md">
-              {pkg.images.length} {pkg.images.length === 1 ? "image" : "packages"}
+              {pkg.images.length} {pkg.images.length === 1 ? "package" : "packages"}
             </div>
           </div>
         </div>

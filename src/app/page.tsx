@@ -10,12 +10,15 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <HolidayPackages/>
+      <RotatingBanner/>
+      <Services />
+      {/* <HolidayPackages/> */}
       {/* <Gallery /> */}
       <AboutUs />
       <Gallery />
-      <RotatingBanner/>
-      <Services />
+      {/* <RotatingBanner/> */}
+      <HolidayPackages/>
+      {/* <Services /> */}
       <Contact />
     </>
   );

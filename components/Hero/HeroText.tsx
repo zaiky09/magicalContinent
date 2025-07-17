@@ -27,6 +27,10 @@ export const HeroText = () => {
     return () => window.removeEventListener("scroll", updateScrollDirection);
   }, []);
 
+  const handleCallNowClick = () => {
+    window.location.href = 'tel:+254732861973';
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: scrollDirection === "down" ? 50 : -50 }}
@@ -44,9 +48,9 @@ export const HeroText = () => {
       </p>
 
       <div className="flex gap-4">
-        <Link href="#contact">
-          <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" />
-        </Link>
+        <div>
+          <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto" onClick={handleCallNowClick} />
+        </div>
         <Link href="#holiday" rel="noopener noreferrer">
           <Button type="button" title="View Packages" variant="btn_light_lime" width="w-auto" />
         </Link>

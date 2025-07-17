@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-// import Link from "next/link";
 import Button from "../Button";
 import { X } from "lucide-react";
 
@@ -36,26 +35,22 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, packageData }) => {
   };
 
   const handleCallNowClick = () => {
-    onClose(); // Close the modal first
-    setTimeout(() => {
-      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-    }, 300); // Delay for smooth transition
+    window.location.href = 'tel:+254732861973';
   };
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-2">
-      <div className="relative w-full max-w-lg">
-        {/* Image Display with Adjusted Height */}
-        <div className="relative w-full h-[80vh] md:h-[500px] lg:h-[600px]">
-          <Image 
-            src={packageData.images[currentIndex]} 
-            alt={packageData.title} 
-            layout="fill" 
-            objectFit="contain" 
-            className="rounded-lg"
+      <div className="relative w-full max-w-lg bg-cream rounded-lg overflow-hidden shadow-lg">
+        <div className="relative w-full">
+          <Image
+            src={packageData.images[currentIndex]}
+            alt={packageData.title}
+            width={800}      // max width for desktop
+            height={500}     // controls aspect ratio
+            className="w-full h-auto mx-auto rounded-md object-contain"
           />
 
-          {/* Close Button (Overlayed on Image) */}
+
           <button
             className="absolute top-3 right-3 bg-black bg-opacity-50 text-white p-2 rounded-full"
             onClick={onClose}
@@ -63,7 +58,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, packageData }) => {
             <X size={24} />
           </button>
 
-          {/* Navigation Buttons Overlay */}
           {packageData.images.length > 1 && (
             <>
               <button 
@@ -82,11 +76,19 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, packageData }) => {
           )}
         </div>
 
-        {/* Call Now Button */}
-        <div className="flex justify-center p-4">
-          <button onClick={handleCallNowClick}>
-            <Button type="button" title="Call Now" variant="btn_light_lime" width="w-auto"/>
-          </button>
+        <div className="p-4 text-center">
+          {/* <h2 className="text-2xl font-bold text-green1 mb-2">{packageData.title}</h2> */}
+          {packageData.description && (
+            <p className="text-green1 mb-4">{packageData.description}</p>
+          )}
+
+          <Button 
+            type="button" 
+            title="Call Now" 
+            variant="btn_light_lime" 
+            width="w-auto"
+            onClick={handleCallNowClick}
+          />
         </div>
       </div>
     </div>

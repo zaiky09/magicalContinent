@@ -7,13 +7,15 @@ type ButtonProps = {
   icon?: string;
   variant: "btn_light_lime";
   width: string;
+  onClick?: () => void;
 };
 
-const Button = ({ type, title, icon, variant, width }: ButtonProps) => {
+const Button = ({ type, title, icon, variant, width, onClick }: ButtonProps) => {
   return (
     <button
       className={`duration-150 rounded-md font-medium my-6 mx-auto px-6 py-3 ${variant} w-[${width}px]`}
       type={type}
+      onClick={onClick}   // ✅ Hook the onClick to the button
     >
       {icon && (
         <Image

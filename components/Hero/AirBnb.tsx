@@ -8,10 +8,10 @@ import Modal from 'react-modal';
 Modal.setAppElement('body'); // Prevents screen reader issues
 
 const images = [
+  '/images/LivingRoomAirBnB.png',
   '/images/BathroomAirBnB.png',
   '/images/BedroomAirBnB.png',
   '/images/KitchenAirBnB.png',
-  '/images/LivingRoomAirBnB.png',
 ];
 
 const MotionH2 = motion('h2');

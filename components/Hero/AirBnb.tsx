@@ -40,7 +40,7 @@ const AirBnb = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Need an AirBnB in Nairobi? <span className="text-red-600">We got you.</span>
+        Need an AirBnB in Nairobi? <span className="text-green1">We got you.</span>
       </MotionH2>
 
       {/* Polished Swiper Carousel */}
@@ -72,7 +72,7 @@ const AirBnb = () => {
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleBooking}
-          className="bg-red-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-red-700 transition"
+          className="bg-red-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-cream hover:text-black transition"
         >
           Book Now
         </a>

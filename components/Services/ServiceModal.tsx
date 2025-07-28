@@ -131,8 +131,8 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, service })
                   className="w-full h-auto rounded-lg object-cover hover:scale-105 transition-transform duration-500"
                 />
                 {img.caption && (
-                  <div className="p-2 bg-green1">
-                    <p className="text-sm text-cream italic group-hover:text-white transition">
+                  <div className="p-2 bg-white">
+                    <p className="text-sm text-green1 italic group-hover:text-white transition">
                       {img.caption}
                     </p>
                   </div>

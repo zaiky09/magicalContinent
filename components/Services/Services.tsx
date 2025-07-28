@@ -17,8 +17,16 @@ const services = [
     description: "Hassle-free ticket booking for flights, trains, and more.",
     images: [
       {
-        src: "/images/Ticket2.jpg",
-        caption: "Effortless flight, train & bus ticketing."
+        src: "/images/FlyingTicketing.jpg",
+        caption: "Effortless flight ticketing."
+      },
+      {
+        src: "/images/SGR1.png",
+        caption: "Effortless train ticketing."
+      },
+      {
+        src: "/images/BaloonsMara.jpg",
+        caption: "Effortless balloon-flight ticketing."
       }
     ],
   },

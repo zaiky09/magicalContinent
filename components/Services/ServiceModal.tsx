@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Phone } from "lucide-react"; // ✅ Added Phone icon
 import Image from "next/image";
 
 interface ServiceModalProps {
@@ -19,7 +19,7 @@ interface ServiceModalProps {
 const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, service }) => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  // ✅ Memoized navigation functions to fix ESLint dependency issue
+  // ✅ Memoized navigation functions
   const goNext = useCallback(() => {
     if (service && lightboxIndex !== null) {
       setLightboxIndex((prev) =>
@@ -56,7 +56,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, service })
     return () => document.removeEventListener("keydown", handleKey);
   }, [onClose, lightboxIndex, goNext, goPrev]);
 
-  // ✅ Mobile swipe detection for lightbox
+  // ✅ Mobile swipe detection
   useEffect(() => {
     let touchStartX = 0;
     let touchEndX = 0;
@@ -110,8 +110,8 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, service })
 
           {/* ✅ Title & Description */}
           <div className="text-center md:text-left mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-green-700">{service.title}</h2>
-            <p className="text-gray-700 mt-3 max-w-2xl">{service.description}</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-green1">{service.title}</h2>
+            <p className="text-green1 mt-3 max-w-2xl">{service.description}</p>
           </div>
 
           {/* ✅ Pinterest-style image grid */}
@@ -131,8 +131,8 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, service })
                   className="w-full h-auto rounded-lg object-cover hover:scale-105 transition-transform duration-500"
                 />
                 {img.caption && (
-                  <div className="p-2 bg-white">
-                    <p className="text-sm text-gray-600 italic group-hover:text-green-700 transition">
+                  <div className="p-2 bg-green1">
+                    <p className="text-sm text-cream italic group-hover:text-white transition">
                       {img.caption}
                     </p>
                   </div>
@@ -142,10 +142,19 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, service })
           </div>
 
           {/* ✅ Read Full Details (future-proof for landing page) */}
-          <div className="text-center mt-8">
-            <button className="text-green-700 font-semibold hover:underline">
+          <div className="text-center mt-8 space-y-4">
+            <button className="text-green1 font-semibold hover:underline">
               Read Full Details →
             </button>
+
+            {/* ✅ Call Now Button */}
+            <a
+              href="tel:+254732861973"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-green1 text-cream font-bold rounded-full shadow-md hover:bg-green-700 transition"
+            >
+              <Phone className="w-5 h-5" />
+              Call Now
+            </a>
           </div>
         </motion.div>
 

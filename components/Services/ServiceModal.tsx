@@ -143,9 +143,9 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, service })
 
           {/* ✅ Read Full Details (future-proof for landing page) */}
           <div className="text-center mt-8 space-y-4">
-            <button className="text-green1 font-semibold hover:underline">
+            {/* <button className="text-green1 font-semibold hover:underline">
               Read Full Details →
-            </button>
+            </button> */}
 
             {/* ✅ Call Now Button */}
             <a

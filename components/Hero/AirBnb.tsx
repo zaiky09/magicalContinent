@@ -1,38 +1,35 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Modal from 'react-modal';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-Modal.setAppElement('body'); // Prevents screen reader issues
+Modal.setAppElement('body');
 
 const images = [
+  '/images/BedroomAirBnB.png',
   '/images/LivingRoomAirBnB.png',
   '/images/BathroomAirBnB.png',
-  '/images/BedroomAirBnB.png',
   '/images/KitchenAirBnB.png',
 ];
 
 const MotionH2 = motion('h2');
 
 const AirBnb = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [activeImage, setActiveImage] = useState('');
-  const [index, setIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeImg, setActiveImg] = useState('');
 
-  // Autoplay carousel every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  const handleBooking = () => console.log('User clicked Book Now!');
 
-  // Handle Book Now click
-  const handleBooking = () => {
-    console.log('User clicked Book Now!');
-    // You can later plug this into Google Analytics or Facebook Pixel
+  const openModal = (img: string) => {
+    setActiveImg(img);
+    setIsOpen(true);
   };
 
   return (
@@ -46,33 +43,32 @@ const AirBnb = () => {
         Need an AirBnB in Nairobi? <span className="text-red-600">We got you.</span>
       </MotionH2>
 
-      {/* Scrollable & auto-switching image gallery */}
-      <div className="flex space-x-4 overflow-x-auto pb-4 scrollbar-hide">
-        {images.map((src, i) => (
-          <div
-            key={i}
-            onClick={() => {
-              setActiveImage(src);
-              setModalOpen(true);
-            }}
-            className={`relative h-64 w-96 flex-shrink-0 rounded-lg overflow-hidden shadow-md border-2 transition-transform ${
-              index === i ? 'scale-105 border-red-500' : 'border-transparent'
-            }`}
-          >
-            <Image
-              src={src}
-              alt={`Airbnb image ${i + 1}`}
-              fill
-              className="object-cover cursor-pointer"
-            />
-          </div>
+      {/* Polished Swiper Carousel */}
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        navigation
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        spaceBetween={16}
+        slidesPerView={1}
+        loop
+        className="max-w-4xl mx-auto"
+      >
+        {images.map((src, idx) => (
+          <SwiperSlide key={idx}>
+            <div
+              onClick={() => openModal(src)}
+              className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden cursor-pointer"
+            >
+              <Image src={src} alt={`Image ${idx + 1}`} fill className="object-cover" />
+            </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
 
-      {/* Book Now Button */}
       <div className="flex justify-center mt-8">
         <a
-          href="https://www.airbnb.com/rooms/1454983245268589138?source_impression_id=p3_1752579694_P3KXXL6CZkXOmWI5"
+          href="https://www.airbnb.com/rooms/YOUR_LISTING_ID"
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleBooking}
@@ -82,29 +78,22 @@ const AirBnb = () => {
         </a>
       </div>
 
-      {/* Modal */}
+      {/* Modal for enlarged image */}
       <Modal
-        isOpen={modalOpen}
-        onRequestClose={() => setModalOpen(false)}
-        className="fixed inset-0 flex items-center justify-center z-50 p-4"
-        overlayClassName="fixed inset-0 bg-black bg-opacity-60 z-40"
+        isOpen={isOpen}
+        onRequestClose={() => setIsOpen(false)}
+        overlayClassName="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
+        className="relative w-full max-w-4xl h-[80vh] bg-white rounded-lg overflow-hidden"
       >
-        <div className="relative w-full max-w-4xl h-[80vh] bg-white rounded-lg overflow-hidden shadow-xl">
-          <button
-            onClick={() => setModalOpen(false)}
-            className="absolute top-2 right-2 bg-black text-white p-2 rounded-full z-10"
-          >
-            ✕
-          </button>
-          {activeImage && (
-            <Image
-              src={activeImage}
-              alt="Active Airbnb"
-              fill
-              className="object-contain"
-            />
-          )}
-        </div>
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-4 right-4 bg-black text-white p-2 rounded-full z-10"
+        >
+          ✕
+        </button>
+        {activeImg && (
+          <Image src={activeImg} alt="Expanded view" fill className="object-contain" />
+        )}
       </Modal>
     </div>
   );

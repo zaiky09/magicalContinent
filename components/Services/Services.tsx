@@ -25,7 +25,7 @@ const services = [
     title: "Tours & Safaris",
     thumbnailUrl: "/images/TourItenaries.jpg",
     description: "Custom tour itineraries for unforgettable experiences.",
-    images: ["/images/Giraffe-Centre-Nairobi.jpg", "/images/A_cave_at_Oloolua_Nature_Trail_Nairobi_Kenya.jpg", "/images/nairobi-national-park.jpeg", "/images/KarenBlixen-removebg-preview.png", "/images/Giraffe.jpeg"],
+    images: ["/images/Giraffe-Centre-Nairobi.jpg", "/images/MagicalContinentFlyer.png", "/images/nairobi-national-park.jpeg", "/images/KarenBlixen-removebg-preview.png", "/images/Giraffe.jpeg"],
   },
   {
     id: 4,

@@ -4,9 +4,12 @@ import { HeroText } from "./HeroText";
 
 export const Hero = () => {
   return (
-    <div className="relative h-full">
+    <section className="relative">
       <Video />
-      <HeroText />
-    </div>
+      {/* Overlay: vertically centered, left-aligned text via flex (robust at every size) */}
+      <div className="absolute inset-0 flex items-center px-[5%]">
+        <HeroText />
+      </div>
+    </section>
   );
 };

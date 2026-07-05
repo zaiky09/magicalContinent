@@ -18,7 +18,7 @@ const AboutUs = () => {
       className="relative flex items-center py-20 px-6 md:px-12 lg:px-24 bg-gradient-to-br from-cream to-white rounded-3xl shadow-xl overflow-hidden"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }} // Triggers when the section comes into view
+      viewport={{ once: true, amount: 0.2 }} // Animate in once when the section is reached
     >
       <div className="flex flex-col lg:flex-row items-center w-full space-y-12 lg:space-y-0 lg:space-x-12">
         {/* About Text Section with animation */}
@@ -26,8 +26,11 @@ const AboutUs = () => {
           className="lg:w-1/2 text-center lg:text-left space-y-6"
           variants={fadeInUp}
         >
-          <h2 className="text-4xl font-extrabold text-green1 tracking-tight leading-tight">
-            About Us
+          <p className="text-sm font-semibold uppercase tracking-widest text-gold">
+            Who we are
+          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-green1 tracking-tight leading-tight">
+            About <span className="text-gold">Magical Continent</span>
           </h2>
           <p className="text-lg text-green1 leading-relaxed">
             At Magical Continent Ltd, we are more than just a travel company—we are curators of extraordinary experiences. We pride ourselves with staff that have 20 years of expertise in the travel and hospitality industry, we have mastered the art of delivering seamless, luxurious, and unforgettable journeys across Africa and beyond.

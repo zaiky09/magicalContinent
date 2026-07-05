@@ -3,24 +3,22 @@ import Gallery from "../../components/Gallery/Gallery";
 import Contact from "../../components/Contact/Contact";
 import { Hero } from "../../components/Hero/Hero";
 import Services from "../../components/Services/Services";
-import AirBnb from "../../components/Hero/AirBnb"; 
+import AirBnb from "../../components/Hero/AirBnb";
 import RotatingBanner from "../../components/Hero/RotatingBanner";
 import HolidayPackages from "../../components/Holiday/Holiday";
+import Testimonials from "../../components/Testimonials/Testimonials";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <RotatingBanner/>
+      <RotatingBanner />
       <Services />
       <AirBnb />
-      {/* <HolidayPackages/> */}
-      {/* <Gallery /> */}
       <AboutUs />
       <Gallery />
-      {/* <RotatingBanner/> */}
-      <HolidayPackages/>
-      {/* <Services /> */}
+      <HolidayPackages />
+      <Testimonials />
       <Contact />
     </>
   );

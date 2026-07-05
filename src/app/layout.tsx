@@ -95,9 +95,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-gold focus:px-4 focus:py-2 focus:font-semibold focus:text-green1"
+        >
+          Skip to content
+        </a>
         <div className="flexCenter flex-col">
           <Navbar />
-          <main className="relative overflow-x-hidden w-[100vw] lg:w-full">
+          <main id="main" className="relative overflow-x-hidden w-[100vw] lg:w-full">
             {children}
           </main>
           <Chatbot />

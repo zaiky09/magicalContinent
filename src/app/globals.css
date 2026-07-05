@@ -22,6 +22,18 @@ section[id],
   scroll-margin-top: 6rem;
 }
 
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @layer utilities {
   .btn_light_lime {
     @apply bg-[white] hover:text-[white] hover:bg-[#1F4045];

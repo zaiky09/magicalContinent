@@ -1,21 +1,25 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import Button from "../Button";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, MessageCircle, Phone } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   packageData: {
     title: string;
-    description?: string;
+    region?: string;
+    teaser?: string;
     images: string[];
   } | null;
 }
 
+const WHATSAPP_NUMBER = "254714837324";
+const PHONE_NUMBER = "+254732861973";
+
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, packageData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const hasImages = !!packageData && packageData.images.length > 0;
+  const multiple = !!packageData && packageData.images.length > 1;
 
   useEffect(() => {
     setCurrentIndex(0);
@@ -57,65 +61,129 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, packageData }) => {
 
   if (!isOpen || !packageData || !hasImages) return null;
 
-  const handleCallNowClick = () => {
-    window.location.href = "tel:+254732861973";
+  const waText = `Hello Magical Continent! I'm interested in a holiday package to ${packageData.title}. Could you share options?`;
+  const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`;
+
+  const planThisTrip = () => {
+    onClose();
+    // Defer so the modal unmounts (scroll unlocks) before we scroll to the form.
+    setTimeout(() => {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    }, 50);
   };
 
   return (
     <div
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-2"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-3"
       role="dialog"
       aria-modal="true"
       aria-label={`${packageData.title} holiday package`}
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg bg-cream rounded-lg overflow-hidden shadow-lg"
+        className="relative flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-2xl bg-cream shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative w-full">
+        {/* Image area */}
+        <div className="relative aspect-[16/10] w-full bg-green1/5">
           <Image
             src={packageData.images[currentIndex]}
             alt={`${packageData.title} — image ${currentIndex + 1} of ${packageData.images.length}`}
-            width={800}
-            height={500}
-            className="w-full h-auto mx-auto rounded-md object-contain"
+            fill
+            sizes="(max-width: 768px) 100vw, 672px"
+            className="object-contain"
           />
 
           <button
-            className="absolute top-3 right-3 bg-black bg-opacity-50 text-white p-2 rounded-full"
+            className="absolute right-3 top-3 rounded-full bg-black/50 p-2 text-white transition hover:bg-black/70"
             onClick={onClose}
             aria-label="Close"
           >
-            <X size={24} />
+            <X size={22} />
           </button>
 
-          {packageData.images.length > 1 && (
+          {multiple && (
             <>
               <button
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full"
+                className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition hover:bg-black/70"
                 onClick={prevImage}
                 aria-label="Previous image"
               >
-                ◀
+                <ChevronLeft size={22} />
               </button>
               <button
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full"
+                className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition hover:bg-black/70"
                 onClick={nextImage}
                 aria-label="Next image"
               >
-                ▶
+                <ChevronRight size={22} />
               </button>
+              <span className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-black/50 px-3 py-1 text-xs text-white">
+                {currentIndex + 1} / {packageData.images.length}
+              </span>
             </>
           )}
         </div>
 
-        <div className="p-4 text-center">
-          {packageData.description && (
-            <p className="text-green1 mb-4">{packageData.description}</p>
+        {/* Details */}
+        <div className="flex flex-col gap-4 overflow-y-auto p-6">
+          <div>
+            {packageData.region && (
+              <p className="text-xs font-semibold uppercase tracking-widest text-gold">
+                {packageData.region}
+              </p>
+            )}
+            <h2 className="text-2xl font-bold text-green1">{packageData.title}</h2>
+            {packageData.teaser && (
+              <p className="mt-1 text-green1/80">{packageData.teaser}</p>
+            )}
+          </div>
+
+          {/* Thumbnail strip */}
+          {multiple && (
+            <div className="flex gap-2 overflow-x-auto pb-1">
+              {packageData.images.map((img, i) => (
+                <button
+                  key={img}
+                  type="button"
+                  onClick={() => setCurrentIndex(i)}
+                  aria-label={`View image ${i + 1}`}
+                  className={`relative h-14 w-20 shrink-0 overflow-hidden rounded-md ring-2 transition ${
+                    i === currentIndex ? "ring-gold" : "ring-transparent opacity-70 hover:opacity-100"
+                  }`}
+                >
+                  <Image src={img} alt="" fill sizes="80px" className="object-cover" />
+                </button>
+              ))}
+            </div>
           )}
 
-          <Button type="button" title="Call Now" onClick={handleCallNowClick} />
+          {/* CTAs */}
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <a
+              href={waLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg bg-green1 px-5 py-3 font-semibold text-cream transition hover:bg-green-700"
+            >
+              <MessageCircle className="h-5 w-5" />
+              Enquire on WhatsApp
+            </a>
+            <a
+              href={`tel:${PHONE_NUMBER}`}
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-green1/30 px-5 py-3 font-semibold text-green1 transition hover:bg-white"
+            >
+              <Phone className="h-5 w-5" />
+              Call
+            </a>
+          </div>
+          <button
+            type="button"
+            onClick={planThisTrip}
+            className="text-sm font-semibold text-gold hover:underline"
+          >
+            Or plan this trip with our enquiry form →
+          </button>
         </div>
       </div>
     </div>

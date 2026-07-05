@@ -2,12 +2,7 @@
   "name": "magical-continent",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@10.15.0",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp"
-    ]
-  },
+  "packageManager": "pnpm@9.15.0",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

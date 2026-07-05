@@ -224,17 +224,34 @@ body {
 }
 
 .banner-track {
-  display: flex;
+  display: inline-flex;
   gap: 50px;
-  animation: scrollBanner 10s linear infinite;
-  width: 50%;
+  padding-right: 50px; /* keep the seam spacing consistent at the wrap point */
+  animation: scrollBanner 30s linear infinite;
+  will-change: transform;
+}
+
+.banner-item {
+  flex-shrink: 0;
+}
+
+/* Pause the marquee on hover so users can read it */
+.banner-container:hover .banner-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-track {
+    animation: none;
+  }
 }
 
 @keyframes scrollBanner {
   from {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   to {
+    /* content is duplicated once, so shifting by half its width loops seamlessly */
     transform: translateX(-50%);
   }
 }

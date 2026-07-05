@@ -1,14 +1,27 @@
+const BANNER_ITEMS = [
+  "🌍 Magical Continent Ltd",
+  "✈️ Excellent Travel Services with Ease.",
+  "Experience seamless and luxurious travel arrangements designed just for you.",
+  "☎️ +254 714-837 324 / +254 732-861973",
+  "✉️ Magicalcontinentltd@outlook.com",
+  "Book Now via Phone call, WhatsApp or Email",
+];
+
 const RotatingBanner = () => {
-    return (
-      <div className="banner-container">
-        <div className="banner-track">
-          <p> •🌍 Magical Continent Ltd • ✈️ Excellent Travel Services with Ease. • Experience seamless and luxurious travel arrangements designed just for you. •</p>
-          <p> •☎️ | +254 714-837 324 / +254 732-861973 | •</p>
-          <p> •✉️ Magicalcontinentltd@outlook.com •</p>
-          <p> •Book Now via Phone call, WhatsApp or Email •</p>
-        </div>
+  // Render the sequence twice so the -50% translate loops seamlessly with no gap.
+  const items = [...BANNER_ITEMS, ...BANNER_ITEMS];
+
+  return (
+    <div className="banner-container">
+      <div className="banner-track">
+        {items.map((item, i) => (
+          <span key={i} className="banner-item">
+            • {item}
+          </span>
+        ))}
       </div>
-    );
-  };
-  
-  export default RotatingBanner;
+    </div>
+  );
+};
+
+export default RotatingBanner;

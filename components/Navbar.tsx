@@ -27,14 +27,11 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener("scroll", controlNavbar);
-
-      return () => {
-        window.removeEventListener("scroll", controlNavbar);
-      };
-    }
+    window.addEventListener("scroll", controlNavbar, { passive: true });
+    return () => window.removeEventListener("scroll", controlNavbar);
   }, [controlNavbar]);
+
+  const closeMenu = () => setOpen(false);
 
   return (
     <nav
@@ -64,25 +61,31 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="lg:hidden" onClick={toggleMenu}>
+        <button
+          type="button"
+          className="lg:hidden text-white"
+          onClick={toggleMenu}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+        >
           <i
-            className={`bx bx-menu text-2xl text-white transition-all duration-300 ${
-              open ? "bx-x" : ""
-            }`}
+            className={`bx ${open ? "bx-x" : "bx-menu"} text-2xl transition-all duration-300`}
           ></i>
-        </div>
+        </button>
       </div>
 
       <ul
-        className={
-          "absolute top-20 left-0 flex flex-col gap-5 p-3 w-full bg-green1 opacity-70 lg:hidden" +
-          (open ? " flex" : " hidden")
-        }
+        id="mobile-menu"
+        className={`absolute top-20 left-0 flex-col gap-5 p-3 w-full bg-green1/95 lg:hidden ${
+          open ? "flex" : "hidden"
+        }`}
       >
         {NAV_LINKS.map((link) => (
           <Link
             href={link.href}
             key={link.key}
+            onClick={closeMenu}
             className="regular-16 text-cream flexCenter cursor-pointer transition-all hover:font-bold"
           >
             {link.label}

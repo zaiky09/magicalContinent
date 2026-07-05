@@ -28,7 +28,7 @@ const ContactUs: React.FC = () => {
               <li className="flex items-center">
                 <i className="bx bx-phone text-green1 text-2xl mr-4"></i>
                 <a
-                  href="tel:+254714837324"
+                  href="tel:+254732861973"
                   className="text-green1 hover:text-[#7F9492] transition-colors"
                 >
                   +254 732-861973

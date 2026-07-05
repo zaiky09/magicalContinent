@@ -2,6 +2,7 @@
 module.exports = {
     darkMode: ['class'],
     content: [
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -23,7 +24,7 @@ module.exports = {
   			gold: '#D0AE8A',
   			green1: '#1F4045',
   			cream: '#EDE5D3',
-  			turquoise: '7F9492',
+  			turquoise: '#7F9492',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -76,5 +77,5 @@ module.exports = {
   		}
   	}
   },
-    // plugins: [require("tailwindcss-animate")]
+    plugins: [require("tailwindcss-animate")],
 };

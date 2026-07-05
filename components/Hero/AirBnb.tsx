@@ -25,8 +25,6 @@ const AirBnb = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeImg, setActiveImg] = useState('');
 
-  const handleBooking = () => console.log('User clicked Book Now!');
-
   const openModal = (img: string) => {
     setActiveImg(img);
     setIsOpen(true);
@@ -60,7 +58,13 @@ const AirBnb = () => {
               onClick={() => openModal(src)}
               className="relative h-64 md:h-96 w-full rounded-lg overflow-hidden cursor-pointer"
             >
-              <Image src={src} alt={`Image ${idx + 1}`} fill className="object-cover" />
+              <Image
+                src={src}
+                alt={`Nairobi Airbnb — photo ${idx + 1}`}
+                fill
+                sizes="(max-width: 768px) 100vw, 896px"
+                className="object-cover"
+              />
             </div>
           </SwiperSlide>
         ))}
@@ -68,13 +72,12 @@ const AirBnb = () => {
 
       <div className="flex justify-center mt-8">
         <a
-          href="https://www.airbnb.com/rooms/YOUR_LISTING_ID"
+          href="https://wa.me/254714837324?text=Hello!%20I'd%20like%20to%20book%20the%20Nairobi%20Airbnb."
           target="_blank"
           rel="noopener noreferrer"
-          onClick={handleBooking}
-          className="bg-red-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-cream hover:text-black transition"
+          className="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green1 transition"
         >
-          Book Now
+          Enquire to Book
         </a>
       </div>
 

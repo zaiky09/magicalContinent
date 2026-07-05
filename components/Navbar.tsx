@@ -6,22 +6,23 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import logo from "../public/images/7-removebg-preview.png";
 
+const SECTION_IDS = NAV_LINKS.map((l) => l.href.replace("#", ""));
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
+  const [activeSection, setActiveSection] = useState<string>("");
   const lastScrollY = useRef(0);
 
-  const toggleMenu = () => {
-    setOpen(!open);
-  };
+  const toggleMenu = () => setOpen((v) => !v);
+  const closeMenu = () => setOpen(false);
 
   const controlNavbar = useCallback(() => {
-    if (window.scrollY > lastScrollY.current) {
-      // Scrolling down
-      setShowNavbar(false);
-    } else {
-      // Scrolling up
+    // Always show near the top; otherwise hide on scroll-down, show on scroll-up.
+    if (window.scrollY < 80 || window.scrollY < lastScrollY.current) {
       setShowNavbar(true);
+    } else {
+      setShowNavbar(false);
     }
     lastScrollY.current = window.scrollY;
   }, []);
@@ -31,66 +32,110 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", controlNavbar);
   }, [controlNavbar]);
 
-  const closeMenu = () => setOpen(false);
+  // Scroll-spy: highlight the nav link for the section currently in view.
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <nav
-      className={`fixed top-0 left-0 z-30 w-full bg-green1 bg-opacity-40 backdrop-blur-sm transition-transform duration-300 ${
-        showNavbar ? 'translate-y-0' : '-translate-y-full'
+      className={`fixed top-0 left-0 z-30 w-full bg-green1/70 backdrop-blur-md shadow-sm transition-transform duration-300 ${
+        showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="w-full flexBetween max-container padding-container z-30 py-2 lg:py-5">
-        <Link href="/">
+      <div className="w-full flexBetween max-container padding-container z-30 py-2 lg:py-4">
+        <Link href="/" aria-label="Magical Continent home">
           <Image
             className="lg:w-[120px] h-auto w-[60px]"
             src={logo.src}
-            alt="logo"
+            alt="Magical Continent logo"
             width="150"
             height="143"
           />
         </Link>
-        <ul className="hidden h-full gap-12 lg:flex">
-          {NAV_LINKS.map((link) => (
+
+        <ul className="hidden h-full items-center gap-8 lg:flex">
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.href.replace("#", "");
+            return (
+              <li key={link.key}>
+                <Link
+                  href={link.href}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`regular-16 rounded-md px-1 py-0.5 transition-all [text-shadow:_0_1px_0_rgb(0_0_0_/_60%)] hover:text-gold focus:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
+                    isActive ? "font-bold text-gold" : "text-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
+          <li>
             <Link
-              href={link.href}
-              key={link.key}
-              className="regular-16 text-white flexCenter [text-shadow:_0_1px_0_rgb(0_0_0_/_80%)] cursor-pointer transition-all hover:font-bold hover:btn_light_lime rounded-md"
+              href="#contact"
+              className="rounded-full bg-gold px-5 py-2 font-semibold text-green1 transition hover:bg-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              {link.label}
+              Get a Quote
             </Link>
-          ))}
+          </li>
         </ul>
 
         <button
           type="button"
-          className="lg:hidden text-white"
+          className="lg:hidden text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded"
           onClick={toggleMenu}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
         >
-          <i
-            className={`bx ${open ? "bx-x" : "bx-menu"} text-2xl transition-all duration-300`}
-          ></i>
+          <i className={`bx ${open ? "bx-x" : "bx-menu"} text-3xl transition-all duration-300`}></i>
         </button>
       </div>
 
       <ul
         id="mobile-menu"
-        className={`absolute top-20 left-0 flex-col gap-5 p-3 w-full bg-green1/95 lg:hidden ${
+        className={`absolute left-0 top-full w-full flex-col gap-2 bg-green1/95 p-4 lg:hidden ${
           open ? "flex" : "hidden"
         }`}
       >
-        {NAV_LINKS.map((link) => (
-          <Link
-            href={link.href}
-            key={link.key}
-            onClick={closeMenu}
-            className="regular-16 text-cream flexCenter cursor-pointer transition-all hover:font-bold"
-          >
-            {link.label}
-          </Link>
-        ))}
+        {NAV_LINKS.map((link) => {
+          const isActive = activeSection === link.href.replace("#", "");
+          return (
+            <Link
+              href={link.href}
+              key={link.key}
+              onClick={closeMenu}
+              aria-current={isActive ? "true" : undefined}
+              className={`regular-16 rounded-md px-3 py-2 transition-all hover:bg-green1 ${
+                isActive ? "font-bold text-gold" : "text-cream"
+              }`}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
+        <Link
+          href="#contact"
+          onClick={closeMenu}
+          className="mt-2 rounded-full bg-gold px-5 py-2 text-center font-semibold text-green1"
+        >
+          Get a Quote
+        </Link>
       </ul>
     </nav>
   );

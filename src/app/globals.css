@@ -16,6 +16,12 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
+/* Offset anchor targets so headings aren't hidden behind the fixed navbar */
+section[id],
+[id="about_us"] {
+  scroll-margin-top: 6rem;
+}
+
 @layer utilities {
   .btn_light_lime {
     @apply bg-[white] hover:text-[white] hover:bg-[#1F4045];

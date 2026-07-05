@@ -74,6 +74,7 @@ const HolidayPackages: React.FC = () => {
               src={pkg.thumbnailUrl}
               alt={pkg.title}
               fill
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               style={{ objectFit: 'cover' }}
               className="rounded-lg shadow-md hover:scale-105 transition"
             />

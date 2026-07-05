@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-@import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
+/* Boxicons is imported as a local dependency in layout.tsx (no render-blocking CDN @import).
+   Inter is loaded and self-hosted via next/font in layout.tsx, exposed as --font-inter. */
 
 @tailwind base;
 @tailwind components;
@@ -13,7 +13,7 @@
 }
 
 body {
-  font-family: Inter;
+  font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 @layer utilities {

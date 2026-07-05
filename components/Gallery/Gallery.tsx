@@ -80,7 +80,7 @@ const Gallery = () => {
       className="relative flex flex-col items-center py-5 sm:py-10"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }} // Triggers when section comes into view
+      viewport={{ once: true, amount: 0.2 }} // Animate in once when the section is reached
       variants={fadeInUp}
     >
       <div className="flex flex-wrap justify-center gap-4 w-full px-4">
@@ -100,7 +100,8 @@ const Gallery = () => {
                 alt={image.description}
                 width={500}
                 height={400}
-                priority // Preload images for smoother transitions
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 400px, 500px"
+                priority={index === 0}
               />
               <p className="text-center mt-2 text-sm text-gray-700">{image.description}</p>
             </motion.div>

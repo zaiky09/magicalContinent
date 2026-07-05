@@ -18,7 +18,7 @@ const AboutUs = () => {
       className="relative flex items-center py-20 px-6 md:px-12 lg:px-24 bg-gradient-to-br from-cream to-white rounded-3xl shadow-xl overflow-hidden"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.2 }} // Triggers when the section comes into view
+      viewport={{ once: true, amount: 0.2 }} // Animate in once when the section is reached
     >
       <div className="flex flex-col lg:flex-row items-center w-full space-y-12 lg:space-y-0 lg:space-x-12">
         {/* About Text Section with animation */}

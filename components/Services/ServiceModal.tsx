@@ -196,6 +196,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, service })
                   src={service.images[lightboxIndex].src}
                   alt={service.images[lightboxIndex].caption || "Zoomed image"}
                   fill
+                  sizes="90vw"
                   className="object-contain rounded-lg"
                 />
               </div>

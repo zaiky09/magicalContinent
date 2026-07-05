@@ -140,6 +140,7 @@ const Services: React.FC = () => {
                 src={service.thumbnailUrl}
                 alt={service.title}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
 

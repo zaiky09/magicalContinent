@@ -14,10 +14,10 @@ export default function Home() {
       <Hero />
       <RotatingBanner />
       <Services />
+      <HolidayPackages />
       <AirBnb />
       <AboutUs />
       <Gallery />
-      <HolidayPackages />
       <Testimonials />
       <Contact />
     </>

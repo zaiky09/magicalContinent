@@ -72,7 +72,7 @@ const AirBnb = () => {
 
       <div className="flex justify-center mt-8">
         <a
-          href="https://wa.me/254714837324?text=Hello!%20I'd%20like%20to%20book%20the%20Nairobi%20Airbnb."
+          href="https://wa.me/254721772473?text=Hello!%20I'd%20like%20to%20book%20the%20Nairobi%20Airbnb."
           target="_blank"
           rel="noopener noreferrer"
           className="bg-green-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green1 transition"

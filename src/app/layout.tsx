@@ -82,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               url: SITE_URL,
               logo: `${SITE_URL}/images/7-removebg-preview.png`,
               image: `${SITE_URL}/images/MaasaiMara.jpg`,
-              telephone: "+254732861973",
+              telephone: "+254721772473",
               email: "magicalcontinentltd@outlook.com",
               address: {
                 "@type": "PostalAddress",

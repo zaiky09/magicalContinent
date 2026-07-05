@@ -4,6 +4,11 @@ import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image, { type StaticImageData } from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import Madagascar from "../../public/images/Madagascar.jpg";
 import Amsterdam from "../../public/images/Amsterdam.jpg";
 import Baloons from "../../public/images/airBaloons.jpg";
@@ -44,31 +49,25 @@ const Gallery = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
-
   const goNext = useCallback(() => {
     setLightboxIndex((prev) => (prev === null ? null : (prev + 1) % images.length));
   }, []);
-
   const goPrev = useCallback(() => {
     setLightboxIndex((prev) =>
       prev === null ? null : (prev - 1 + images.length) % images.length
     );
   }, []);
 
-  // Keyboard navigation + body-scroll lock while the lightbox is open.
   useEffect(() => {
     if (lightboxIndex === null) return;
-
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeLightbox();
       if (e.key === "ArrowRight") goNext();
       if (e.key === "ArrowLeft") goPrev();
     };
-
     document.addEventListener("keydown", handleKey);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-
     return () => {
       document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = prevOverflow;
@@ -90,36 +89,46 @@ const Gallery = () => {
           </h2>
         </div>
 
-        {/* Masonry mosaic */}
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance]">
+        {/* Carousel */}
+        <Swiper
+          className="gallery-swiper !pb-12"
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          loop
+          spaceBetween={16}
+          breakpoints={{
+            0: { slidesPerView: 1.15 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
           {images.map((image, index) => (
-            <motion.button
-              key={index}
-              type="button"
-              onClick={() => setLightboxIndex(index)}
-              aria-label={`View: ${image.description}`}
-              className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-gold"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
-            >
-              <Image
-                src={image.src}
-                alt={image.description}
-                placeholder="blur"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              {/* Caption overlay on hover */}
-              <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-green1/80 via-green1/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <p className="p-4 text-left text-sm font-medium text-cream">
-                  {image.description}
-                </p>
-              </div>
-            </motion.button>
+            <SwiperSlide key={index}>
+              <button
+                type="button"
+                onClick={() => setLightboxIndex(index)}
+                aria-label={`View: ${image.description}`}
+                className="group relative block h-64 w-full overflow-hidden rounded-2xl shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.description}
+                  fill
+                  placeholder="blur"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-green1/80 via-green1/10 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <p className="p-4 text-left text-sm font-medium text-cream">
+                    {image.description}
+                  </p>
+                </div>
+              </button>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
 
       {/* Lightbox */}
@@ -142,7 +151,6 @@ const Gallery = () => {
             >
               <X className="h-6 w-6" />
             </button>
-
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -153,7 +161,6 @@ const Gallery = () => {
             >
               <ChevronLeft className="h-7 w-7" />
             </button>
-
             <button
               onClick={(e) => {
                 e.stopPropagation();
@@ -164,7 +171,6 @@ const Gallery = () => {
             >
               <ChevronRight className="h-7 w-7" />
             </button>
-
             <motion.figure
               key={lightboxIndex}
               className="relative flex max-h-[85vh] w-full max-w-4xl flex-col items-center"

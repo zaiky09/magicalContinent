@@ -149,7 +149,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, service })
 
             {/* ✅ Call Now Button */}
             <a
-              href="tel:+254732861973"
+              href="tel:+254721772473"
               className="inline-flex items-center gap-2 px-5 py-3 bg-green1 text-cream font-bold rounded-full shadow-md hover:bg-green-700 transition"
             >
               <Phone className="w-5 h-5" />

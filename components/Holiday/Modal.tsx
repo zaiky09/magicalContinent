@@ -13,8 +13,8 @@ interface ModalProps {
   } | null;
 }
 
-const WHATSAPP_NUMBER = "254714837324";
-const PHONE_NUMBER = "+254732861973";
+const WHATSAPP_NUMBER = "254721772473";
+const PHONE_NUMBER = "+254721772473";
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, packageData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);

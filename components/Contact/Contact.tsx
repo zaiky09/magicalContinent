@@ -30,10 +30,10 @@ const ContactUs: React.FC = () => {
                 <li className="flex items-center">
                   <i className="bx bx-phone text-green1 text-2xl mr-4"></i>
                   <a
-                    href="tel:+254732861973"
+                    href="tel:+254721772473"
                     className="text-green1 hover:text-[#7F9492] transition-colors"
                   >
-                    +254 732-861973
+                    +254 721-772473
                   </a>
                 </li>
 
@@ -60,7 +60,7 @@ const ContactUs: React.FC = () => {
               {/* WhatsApp Chat Button */}
               <div className="mt-6">
                 <a
-                  href="https://wa.me/254714837324?text=Hello!%20I'm%20interested%20in%20your%20services."
+                  href="https://wa.me/254721772473?text=Hello!%20I'm%20interested%20in%20your%20services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-green-500 text-white flex items-center justify-center px-4 py-2 rounded-lg hover:bg-green-600 transition"

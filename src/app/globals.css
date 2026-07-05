@@ -153,6 +153,21 @@ section[id],
   }
 }
 
+/* Brand-themed Swiper controls for the gallery carousel */
+.gallery-swiper {
+  --swiper-navigation-color: #d0ae8a;
+  --swiper-pagination-color: #d0ae8a;
+  --swiper-navigation-size: 28px;
+}
+.gallery-swiper .swiper-pagination-bullet {
+  background: #1f4045;
+  opacity: 0.4;
+}
+.gallery-swiper .swiper-pagination-bullet-active {
+  background: #d0ae8a;
+  opacity: 1;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;

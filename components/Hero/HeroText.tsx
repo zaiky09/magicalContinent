@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export const HeroText = () => {
   const handleCallNowClick = () => {
-    window.location.href = "tel:+254732861973";
+    window.location.href = "tel:+254721772473";
   };
 
   return (

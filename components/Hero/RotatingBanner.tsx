@@ -2,7 +2,7 @@ const BANNER_ITEMS = [
   "🌍 Magical Continent Ltd",
   "✈️ Excellent Travel Services with Ease.",
   "Experience seamless and luxurious travel arrangements designed just for you.",
-  "☎️ +254 714-837 324 / +254 732-861973",
+  "☎️ +254 721-772473",
   "✉️ Magicalcontinentltd@outlook.com",
   "Book Now via Phone call, WhatsApp or Email",
 ];

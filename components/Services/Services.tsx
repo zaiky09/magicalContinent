@@ -21,8 +21,8 @@ import {
 // Lazy-load the modal (used by the secondary services) to keep initial load light.
 const ServiceModal = dynamic(() => import("./ServiceModal"), { ssr: false });
 
-const WHATSAPP_NUMBER = "254714837324";
-const PHONE_NUMBER = "+254732861973";
+const WHATSAPP_NUMBER = "254721772473";
+const PHONE_NUMBER = "+254721772473";
 
 const waLink = (text: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;

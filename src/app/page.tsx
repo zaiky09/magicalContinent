@@ -6,6 +6,7 @@ import Services from "../../components/Services/Services";
 import AirBnb from "../../components/Hero/AirBnb";
 import RotatingBanner from "../../components/Hero/RotatingBanner";
 import HolidayPackages from "../../components/Holiday/Holiday";
+import Testimonials from "../../components/Testimonials/Testimonials";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <AboutUs />
       <Gallery />
       <HolidayPackages />
+      <Testimonials />
       <Contact />
     </>
   );

@@ -19,7 +19,7 @@ const images = [
   '/images/KitchenAirBnB.png',
 ];
 
-const MotionH2 = motion('h2');
+const MotionH2 = motion.create('h2');
 
 const AirBnb = () => {
   const [isOpen, setIsOpen] = useState(false);
